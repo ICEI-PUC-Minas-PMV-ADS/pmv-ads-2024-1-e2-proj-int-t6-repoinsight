@@ -10,6 +10,8 @@ Apresente uma visão geral do que será abordado nesta parte do documento, enume
 
 João Campos tem 35 anos, é professor formado em Ciência da Computação e leciona nos cursos de tecnologia. Ele utiliza o GitHub em suas aulas, assim consegue ver todas as mudanças realizadas pelos alunos, porém, mesmo fazendo uma divisão em grupos, João precisa de muito tempo para avaliar as mudanças, pois são múltiplas turmas com múltiplos grupos.
 
+Maria Silva tem 40 anos e é professora universitária de Engenharia de Software. Ela ensina disciplinas avançadas de desenvolvimento de software e gerenciamento de projetos. Maria utiliza o GitHub em suas aulas para supervisionar o progresso dos projetos dos alunos. No entanto, ela enfrenta dificuldades para acompanhar todas as contribuições devido ao grande volume de projetos e equipes.
+
 ## Histórias de Usuários
 
 Com base na análise das personas forma identificadas as seguintes histórias de usuários:
@@ -17,6 +19,8 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 | EU COMO... | QUERO/PRECISO ... | PARA ... |
 |------------|-------------------|----------|
 | Professor  | avaliar os projetos de forma mais objetiva | aumentar minha produtividade |
+| Professoa  | ter uma visão consolidada das contribuições dos alunos em projetos do GitHub	 | facilitar a avaliação e o acompanhamento do progresso dos alunos em suas disciplinas
+ |
 
 ## Requisitos
 
