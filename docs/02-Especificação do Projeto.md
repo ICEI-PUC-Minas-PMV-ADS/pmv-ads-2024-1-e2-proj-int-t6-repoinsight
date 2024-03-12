@@ -48,15 +48,26 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| A aplicação deve permitir que o usuário gerencie suas tarefas | ALTA | 
-|RF-002| A aplicação deve emitir um relatório de tarefas realizadas no mês   | MÉDIA |
+|RF-001| Gerenciar cadastros de usuario| ALTA |
+|RF-002| Gerenciar repositorios | ALTA |
+|RF-003| Mostrar contribuintes do repositorio| ALTA |
+|RF-004| Gerenciar metricas do repositorio| ALTA |
+|RF-005| Filtrar metricas do repositorio por contribuinte e data| ALTA |
+|RF-007| Buscar Commits, PRs, Branchs e nome de arquivos| ALTA |
+|RF-008| Redirecionar o usuario para o respectivo commit, PR, Branch e arquivo| ALTA |
+|RF-009| Filtrar repositorios | MEDIO |
+|RF-010| Criar metricas por arquivos | MEDIO |
+|RF-011| Gerar insights a partir de metricas do repositorio | BAIXA |
 
 ### Requisitos não Funcionais
 
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
-|RNF-001| A aplicação deve ser responsiva | MÉDIA | 
-|RNF-002| A aplicação deve processar requisições do usuário em no máximo 3s |  BAIXA | 
+| RNF-001 | A aplicação deve ser publicada em um ambiente acessível público na Internet. | ALTA |
+| RNF-002 | A aplicação deverá ser responsiva permitindo a visualização em dispositivos diversos de forma adequada. | ALTA |
+| RNF-003 | A aplicação deve ser compatível com os navegadores do mercado: Google Chrome, Firefox e Microsoft Edge. | ALTA |
+| RNF-004 | A aplicação deve ser intuitiva e dinâmica. | ALTA |
+| RNF-005 | Assegurar a privacidade dos usuários conforme a LGPD. | ALTA |
 
 Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
 
@@ -80,8 +91,6 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 |ID| Restrição                                             |
 |--|-------------------------------------------------------|
 |01| O projeto deverá ser entregue até o final do semestre |
-|02| Não pode ser desenvolvido um módulo de backend        |
-
 
 Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
 
