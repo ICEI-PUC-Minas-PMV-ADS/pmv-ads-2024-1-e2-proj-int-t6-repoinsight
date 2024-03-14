@@ -18,7 +18,7 @@ Pedro Oliveira é um professor de 30 anos, formado em Engenharia Elétrica, que 
 
 Com base na análise das personas forma identificadas as seguintes histórias de usuários:
 
-| EU COMO...`PERSONA` | QUERO/PRECISO ...`O QUE` | PARA ...`MOTIVO`|
+| EU COMO...`PERSONA` | QUERO/PRECISO ...`FUNCIONALIDADE` | PARA ...`MOTIVO`|
 |------------|-------------------|----------|
 | João Campos  | avaliar os projetos de forma mais objetiva | aumentar minha produtividade |
 | Maria Silva  | ter uma visão consolidada das contribuições dos alunos em projetos do GitHub	| facilitar a avaliação e o acompanhamento do progresso dos alunos em suas disciplinas
