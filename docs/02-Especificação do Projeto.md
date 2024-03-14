@@ -1,10 +1,6 @@
 # Especificações do Projeto
 
-<span style="color:red">Pré-requisitos: <a href="1-Documentação de Contexto.md"> Documentação de Contexto</a></span>
-
-Definição do problema e ideia de solução a partir da perspectiva do usuário. É composta pela definição do  diagrama de personas, histórias de usuários, requisitos funcionais e não funcionais além das restrições do projeto.
-
-Apresente uma visão geral do que será abordado nesta parte do documento, enumerando as técnicas e/ou ferramentas utilizadas para realizar a especificações do projeto
+Este projeto visa simplificar a gestão de projetos acadêmicos no ambiente do GitHub, aliviando a carga de trabalho dos professores na avaliação das contribuições dos alunos. Ao automatizar a sincronização de informações, gerar relatórios detalhados e oferecer uma interface intuitiva, busca-se aumentar a eficiência e promover um acompanhamento mais preciso e ágil das atividades dos estudantes, incentivando o aprendizado colaborativo e aprimorando a experiência educacional.
 
 ## Personas
 
@@ -12,15 +8,17 @@ João Campos tem 35 anos, é professor formado em Ciência da Computação e lec
 
 Maria Silva tem 40 anos e é professora universitária de Engenharia de Software. Ela ensina disciplinas avançadas de desenvolvimento de software e gerenciamento de projetos. Maria utiliza o GitHub em suas aulas para supervisionar o progresso dos projetos dos alunos. No entanto, ela enfrenta dificuldades para acompanhar todas as contribuições devido ao grande volume de projetos e equipes.
 
+Pedro Oliveira é um professor de 30 anos, formado em Engenharia Elétrica, que ministra disciplinas relacionadas a sistemas embarcados e programação de baixo nível. Ele usa o GitHub como plataforma principal para colaboração e avaliação de projetos práticos de seus alunos. Pedro enfrenta desafios semelhantes aos de João e Maria, pois precisa de uma maneira mais eficiente de avaliar as contribuições dos alunos em vários projetos.
+
 ## Histórias de Usuários
 
 Com base na análise das personas forma identificadas as seguintes histórias de usuários:
 
-| EU COMO... | QUERO/PRECISO ... | PARA ... |
+| EU COMO...`PERSONA` | QUERO/PRECISO ...`FUNCIONALIDADE` | PARA ...`MOTIVO`|
 |------------|-------------------|----------|
-| Professor  | avaliar os projetos de forma mais objetiva | aumentar minha produtividade |
-| Professoa  | ter uma visão consolidada das contribuições dos alunos em projetos do GitHub	 | facilitar a avaliação e o acompanhamento do progresso dos alunos em suas disciplinas
- |
+| João Campos  | avaliar os projetos de forma mais objetiva | aumentar minha produtividade |
+| Maria Silva  | ter uma visão consolidada das contribuições dos alunos em projetos do GitHub	| facilitar a avaliação e o acompanhamento do progresso dos alunos em suas disciplinas
+| Pedro Oliveira  | visualizar as alterações nos projetos dos alunos de forma mais eficiente	| gerenciar melhor o tempo dedicado à avaliação e feedback dos alunos
 
 ## Requisitos
 
@@ -37,8 +35,8 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-005| Filtrar metricas do repositorio por contribuinte e data| ALTA |
 |RF-007| Buscar Commits, PRs, Branchs e nome de arquivos| ALTA |
 |RF-008| Redirecionar o usuario para o respectivo commit, PR, Branch e arquivo| ALTA |
-|RF-009| Filtrar repositorios | MEDIO |
-|RF-010| Criar metricas por arquivos | MEDIO |
+|RF-009| Filtrar repositorios | MEDIA |
+|RF-010| Criar metricas por arquivos | MEDIA |
 |RF-011| Gerar insights a partir de metricas do repositorio | BAIXA |
 
 
@@ -52,20 +50,8 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 | RNF-004 | A aplicação deve ser intuitiva e dinâmica. | ALTA |
 | RNF-005 | Assegurar a privacidade dos usuários conforme a LGPD. | ALTA |
 
-Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
 
-- [Requisitos Funcionais
- (RF)](https://pt.wikipedia.org/wiki/Requisito_funcional):
- correspondem a uma funcionalidade que deve estar presente na
-  plataforma (ex: cadastro de usuário).
-- [Requisitos Não Funcionais
-  (RNF)](https://pt.wikipedia.org/wiki/Requisito_n%C3%A3o_funcional):
-  correspondem a uma característica técnica, seja de usabilidade,
-  desempenho, confiabilidade, segurança ou outro (ex: suporte a
-  dispositivos iOS e Android).
-Lembre-se que cada requisito deve corresponder à uma e somente uma
-característica alvo da sua solução. Além disso, certifique-se de que
-todos os aspectos capturados nas Histórias de Usuário foram cobertos.
+> **Prioridade: Alta / Média / Baixa. 
 
 ## Restrições
 
@@ -74,12 +60,8 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 |ID| Restrição                                             |
 |--|-------------------------------------------------------|
 |01| O projeto deverá ser entregue até o final do semestre |
-
-Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
-
-> **Links Úteis**:
-> - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-> - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
+|02| A equipe de desenvolvimento deve contar com 6 (seis) desenvolvedores |
+|03| Deve haver pelo menos 1 (uma) reunião geral por semana, com duração de até 2 (duas) horas |
 
 ## Diagrama de Casos de Uso
 
