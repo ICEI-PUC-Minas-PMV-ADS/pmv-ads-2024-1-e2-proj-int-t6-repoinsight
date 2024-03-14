@@ -66,6 +66,8 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 |ID| Restrição                                             |
 |--|-------------------------------------------------------|
 |01| O projeto deverá ser entregue até o final do semestre |
+|02| A equipe de desenvolvimento deve contar com 6 (seis) desenvolvedores |
+|03| Deve haver pelo menos 1 (uma) reunião geral por semana, com duração de até 2 (duas) horas |
 
 
 Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
