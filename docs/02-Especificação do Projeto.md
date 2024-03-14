@@ -1,10 +1,6 @@
 # Especificações do Projeto
 
-<span style="color:red">Pré-requisitos: <a href="1-Documentação de Contexto.md"> Documentação de Contexto</a></span>
-
-Definição do problema e ideia de solução a partir da perspectiva do usuário. É composta pela definição do  diagrama de personas, histórias de usuários, requisitos funcionais e não funcionais além das restrições do projeto.
-
-Apresente uma visão geral do que será abordado nesta parte do documento, enumerando as técnicas e/ou ferramentas utilizadas para realizar a especificações do projeto
+Este projeto visa simplificar a gestão de projetos acadêmicos no ambiente do GitHub, aliviando a carga de trabalho dos professores na avaliação das contribuições dos alunos. Ao automatizar a sincronização de informações, gerar relatórios detalhados e oferecer uma interface intuitiva, busca-se aumentar a eficiência e promover um acompanhamento mais preciso e ágil das atividades dos estudantes, incentivando o aprendizado colaborativo e aprimorando a experiência educacional.
 
 ## Personas
 
