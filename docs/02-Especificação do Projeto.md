@@ -12,15 +12,17 @@ João Campos tem 35 anos, é professor formado em Ciência da Computação e lec
 
 Maria Silva tem 40 anos e é professora universitária de Engenharia de Software. Ela ensina disciplinas avançadas de desenvolvimento de software e gerenciamento de projetos. Maria utiliza o GitHub em suas aulas para supervisionar o progresso dos projetos dos alunos. No entanto, ela enfrenta dificuldades para acompanhar todas as contribuições devido ao grande volume de projetos e equipes.
 
+Pedro Oliveira é um professor de 30 anos, formado em Engenharia Elétrica, que ministra disciplinas relacionadas a sistemas embarcados e programação de baixo nível. Ele usa o GitHub como plataforma principal para colaboração e avaliação de projetos práticos de seus alunos. Pedro enfrenta desafios semelhantes aos de João e Maria, pois precisa de uma maneira mais eficiente de avaliar as contribuições dos alunos em vários projetos.
+
 ## Histórias de Usuários
 
 Com base na análise das personas forma identificadas as seguintes histórias de usuários:
 
-| EU COMO... | QUERO/PRECISO ... | PARA ... |
+| EU COMO...`PERSONA` | QUERO/PRECISO ...`O QUE` | PARA ...`MOTIVO`|
 |------------|-------------------|----------|
-| Professor  | avaliar os projetos de forma mais objetiva | aumentar minha produtividade |
-| Professoa  | ter uma visão consolidada das contribuições dos alunos em projetos do GitHub	 | facilitar a avaliação e o acompanhamento do progresso dos alunos em suas disciplinas
- |
+| João Campos  | avaliar os projetos de forma mais objetiva | aumentar minha produtividade |
+| Maria Silva  | ter uma visão consolidada das contribuições dos alunos em projetos do GitHub	| facilitar a avaliação e o acompanhamento do progresso dos alunos em suas disciplinas
+| Pedro Oliveira  | visualizar as alterações nos projetos dos alunos de forma mais eficiente	| gerenciar melhor o tempo dedicado à avaliação e feedback dos alunos
 
 ## Requisitos
 
@@ -30,9 +32,14 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| A plataforma deve permitir ao usuário cadastrar uma conta | ALTA | 
-|RF-002| O sistema deve ser capaz de sincronizar automaticamente as informações dos repositórios do Git com os perfis dos alunos e professores no sistema de gestão educacional, garantindo que as atualizações sejam refletidas em tempo real | ALTA |
-|RF-003| O sistema deve ser capaz de gerar relatórios automáticos que detalham as atividades realizadas pelos alunos nos repositórios do Git, incluindo commits, pull requests, e issues abertas e fechadas | MÉDIA |
+|RF-001| A plataforma deve permitir ao usuário cadastrar uma conta. | ALTA | 
+|RF-002| A plataforma deve permitir ao usuário fazer login em uma conta. | ALTA | 
+|RF-003| O sistema deve ser capaz de sincronizar automaticamente as informações dos repositórios do Git com os perfis dos alunos e professores no sistema de gestão educacional, garantindo que as atualizações sejam refletidas em tempo real. | ALTA |
+|RF-004| O sistema deve ser capaz de gerar relatórios automáticos que detalham as atividades realizadas pelos alunos nos repositórios do Git, incluindo commits, pull requests, e issues abertas e fechadas. | MÉDIA |
+|RF-005| O sistema deve oferecer uma interface de usuário intuitiva para facilitar a interação dos professores e alunos com as funcionalidades disponíveis na plataforma. | MÉDIA |
+|RF-006| O sistema deve permitir aos usuários definirem notificações personalizadas para eventos específicos nos repositórios do Git, como novos commits ou pull requests, para facilitar o acompanhamento das atividades | BAIXA |
+
+> **Prioridade: Alta / Média / Baixa. 
 
 ### Requisitos não Funcionais
 
@@ -43,21 +50,9 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 | RNF-03 | A aplicação deve ser compatível com os navegadores do mercado: Google Chrome, Firefox e Microsoft Edge. | ALTA |
 | RNF-04 | A aplicação deve ser intuitiva e dinâmica. | ALTA |
 | RNF-05 | Assegurar a privacidade dos usuários conforme a LGPD. | ALTA | 
+| RNF-06 | A aplicação deve garantir um tempo de resposta rápido para todas as interações do usuário, visando uma experiência fluida.  | ALTA |
 
-Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
-
-- [Requisitos Funcionais
- (RF)](https://pt.wikipedia.org/wiki/Requisito_funcional):
- correspondem a uma funcionalidade que deve estar presente na
-  plataforma (ex: cadastro de usuário).
-- [Requisitos Não Funcionais
-  (RNF)](https://pt.wikipedia.org/wiki/Requisito_n%C3%A3o_funcional):
-  correspondem a uma característica técnica, seja de usabilidade,
-  desempenho, confiabilidade, segurança ou outro (ex: suporte a
-  dispositivos iOS e Android).
-Lembre-se que cada requisito deve corresponder à uma e somente uma
-característica alvo da sua solução. Além disso, certifique-se de que
-todos os aspectos capturados nas Histórias de Usuário foram cobertos.
+> **Prioridade: Alta / Média / Baixa. 
 
 ## Restrições
 
@@ -68,13 +63,6 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 |01| O projeto deverá ser entregue até o final do semestre |
 |02| A equipe de desenvolvimento deve contar com 6 (seis) desenvolvedores |
 |03| Deve haver pelo menos 1 (uma) reunião geral por semana, com duração de até 2 (duas) horas |
-
-
-Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
-
-> **Links Úteis**:
-> - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-> - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
 
 ## Diagrama de Casos de Uso
 
