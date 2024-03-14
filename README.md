@@ -4,7 +4,7 @@
 
 `Desenvolvimento de aplicação interativa`
 
-`1º semestre/2024`
+`1º semestre/2023`
 
 Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
 
