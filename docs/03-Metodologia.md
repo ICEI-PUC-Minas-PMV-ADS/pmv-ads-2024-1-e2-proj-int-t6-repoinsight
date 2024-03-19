@@ -1,11 +1,11 @@
 
 # Metodologia
 
-<span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a></span>
-
-Descreva aqui a metodologia de trabalho do grupo para atacar o problema. Definições sobre os ambiente de trabalho utilizados pela  equipe para desenvolver o projeto. Abrange a relação de ambientes utilizados, a estrutura para gestão do código fonte, além da definição do processo e ferramenta através dos quais a equipe se organiza (Gestão de Times).
+A abordagem metodológica adotada é fundamentada na metodologia ágil Scrum, dada a sua colaboração, eficácia e eficiência na execução do projeto. O Scrum busca uma melhor organização das equipes de trabalho e uma fragmentação das tarefas, distribuindo-se de forma a proporcionar maior eficiência no processo de desenvolvimento, se baseando na entrega do produto de maneira incremental, ou seja, em etapas curtas e regulares conhecidas como sprints. Além das sprints, o Scrum é composto pelos artefatos (backlog do produto), reuniões regulares e divisões de papéis.
 
 ## Controle de Versão
+
+
 
 A ferramenta de controle de versão adotada no projeto foi o
 [Git](https://git-scm.com/), sendo que o [Github](https://github.com)
