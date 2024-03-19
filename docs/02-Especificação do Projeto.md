@@ -28,25 +28,28 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| A plataforma deve permitir ao usuário cadastrar uma conta. | ALTA | 
-|RF-002| A plataforma deve permitir ao usuário fazer login em uma conta. | ALTA | 
-|RF-003| O sistema deve ser capaz de sincronizar automaticamente as informações dos repositórios do Git com os perfis dos alunos e professores no sistema de gestão educacional, garantindo que as atualizações sejam refletidas em tempo real. | ALTA |
-|RF-004| O sistema deve ser capaz de gerar relatórios automáticos que detalham as atividades realizadas pelos alunos nos repositórios do Git, incluindo commits, pull requests, e issues abertas e fechadas. | MÉDIA |
-|RF-005| O sistema deve oferecer uma interface de usuário intuitiva para facilitar a interação dos professores e alunos com as funcionalidades disponíveis na plataforma. | MÉDIA |
-|RF-006| O sistema deve permitir aos usuários definirem notificações personalizadas para eventos específicos nos repositórios do Git, como novos commits ou pull requests, para facilitar o acompanhamento das atividades | BAIXA |
+|RF-001| Gerenciar cadastros de usuario| ALTA |
+|RF-002| Gerenciar repositorios | ALTA |
+|RF-003| Mostrar contribuintes do repositorio| ALTA |
+|RF-004| Gerenciar metricas do repositorio| ALTA |
+|RF-005| Filtrar metricas do repositorio por contribuinte e data| ALTA |
+|RF-007| Buscar Commits, PRs, Branchs e nome de arquivos| ALTA |
+|RF-008| Redirecionar o usuario para o respectivo commit, PR, Branch e arquivo| ALTA |
+|RF-009| Filtrar repositorios | MEDIA |
+|RF-010| Criar metricas por arquivos | MEDIA |
+|RF-011| Gerar insights a partir de metricas do repositorio | BAIXA |
 
-> **Prioridade: Alta / Média / Baixa. 
 
 ### Requisitos não Funcionais
 
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
-| RNF-01 | A aplicação deve ser publicada em um ambiente acessível público na Internet. | ALTA |
-| RNF-02 | A aplicação deverá ser responsiva permitindo a visualização em dispositivos diversos de forma adequada. | ALTA |
-| RNF-03 | A aplicação deve ser compatível com os navegadores do mercado: Google Chrome, Firefox e Microsoft Edge. | ALTA |
-| RNF-04 | A aplicação deve ser intuitiva e dinâmica. | ALTA |
-| RNF-05 | Assegurar a privacidade dos usuários conforme a LGPD. | ALTA | 
-| RNF-06 | A aplicação deve garantir um tempo de resposta rápido para todas as interações do usuário, visando uma experiência fluida.  | ALTA |
+| RNF-001 | A aplicação deve ser publicada em um ambiente acessível público na Internet. | ALTA |
+| RNF-002 | A aplicação deverá ser responsiva permitindo a visualização em dispositivos diversos de forma adequada. | ALTA |
+| RNF-003 | A aplicação deve ser compatível com os navegadores do mercado: Google Chrome, Firefox e Microsoft Edge. | ALTA |
+| RNF-004 | A aplicação deve ser intuitiva e dinâmica. | ALTA |
+| RNF-005 | Assegurar a privacidade dos usuários conforme a LGPD. | ALTA |
+
 
 > **Prioridade: Alta / Média / Baixa. 
 
