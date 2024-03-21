@@ -1,9 +1,6 @@
 
 # Metodologia
-
-<span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a></span>
-Scrum
-Descreva aqui a metodologia de trabalho do grupo para atacar o problema. Definições sobre os ambiente de trabalho utilizados pela  equipe para desenvolver o projeto. Abrange a relação de ambientes utilizados, a estrutura para gestão do código fonte, além da definição do processo e ferramenta através dos quais a equipe se organiza (Gestão de Times).
+A abordagem metodológica aplicada é fundamentada na metodologia Ágil Scrum, dada a sua colaboração, eficácia e eficiência na execução do projeto. O Scrum busca uma melhor organização das equipes de trabalho e uma fragmentação das tarefas, distribuindo-se de forma a proporcionar maior eficiência no processo de desenvolvimento, com base na entrega do produto de maneira incremental, ou seja, em etapas curtas e regulares conhecidas como corrida. Além dos sprints, o Scrum é composto por artistas (backlog do produto), reuniões regulares e divisões de funções
 
 ## Controle de Versão
 
@@ -28,34 +25,42 @@ etiquetas:
 
 Discuta como a configuração do projeto foi feita na ferramenta de versionamento escolhida. Exponha como a gerência de tags, merges, commits e branchs é realizada. Discuta como a gerência de issues foi realizada.
 
-> **Links Úteis**:
-> - [Tutorial GitHub](https://guides.github.com/activities/hello-world/)
-> - [Git e Github](https://www.youtube.com/playlist?list=PLHz_AreHm4dm7ZULPAmadvNhH6vk9oNZA)
->  - [Comparando fluxos de trabalho](https://www.atlassian.com/br/git/tutorials/comparing-workflows)
-> - [Understanding the GitHub flow](https://guides.github.com/introduction/flow/)
-> - [The gitflow workflow - in less than 5 mins](https://www.youtube.com/watch?v=1SXpE08hvGs)
 
 ## Gerenciamento de Projeto
 
 ### Divisão de Papéis
+Com base na metodologia escolhida foi definida a divisão dos papéis da seguinte forma:
 
-Apresente a divisão de papéis entre os membros do grupo.
+Scrum Master: Lucas Antonio Riboli
 
-> **Links Úteis**:
-> - [11 Passos Essenciais para Implantar Scrum no seu 
-> Projeto](https://mindmaster.com.br/scrum-11-passos/)
-> - [Scrum em 9 minutos](https://www.youtube.com/watch?v=XfvQWnRgxG0)
+Product Owner: Victor Ornelas da Silva
+
+Equipe de Desenvolvimento : Andryel Passos, Fabio Vinícius Barkoski, Gustavo Marques, João Pedro, Lucas Antonio Riboli, Thiago Luiz e Victor Ornelas da Silva.
+
+Equipe de Design : Andryel Passos, Fabio Vinícius Barkoski, Gustavo Marques, João Pedro, Lucas Antonio Riboli, Thiago Luiz e Victor Ornelas da Silva.
+
+Equipe de Testes : Andryel Passos, Fabio Vinícius Barkoski, Gustavo Marques, João Pedro, Lucas Antonio Riboli, Thiago Luiz e Victor Ornelas da Silva.
 
 ### Processo
 
-Coloque  informações sobre detalhes da implementação do Scrum seguido pelo grupo. O grupo poderá fazer uso de ferramentas on-line para acompanhar o andamento do projeto, a execução das tarefas e o status de desenvolvimento da solução.
- 
-> **Links Úteis**:
-> - [Project management, made simple](https://github.com/features/project-management/)
-> - [Sobre quadros de projeto](https://docs.github.com/pt/github/managing-your-work-on-github/about-project-boards)
-> - [Como criar Backlogs no Github](https://www.youtube.com/watch?v=RXEy6CFu9Hk)
-> - [Tutorial Slack](https://slack.com/intl/en-br/)
+A equipe é especificada por meio de reuniões semanais para discutir as tarefas e dividir as ações a serem realizadas. Utilizamos as ferramentas Teams e o Whatsaap para nos comunicarmos. Por fim, decidimos usar um projeto GitHub para organizar, dividir e especificar cada tarefa a ser executada por cada membro, com base na seguinte lista:
 
+Product Backlog: Recebe as tarefas a serem trabalhadas e representa o Product Backlog. Todas as atividades identificadas no decorrer do projeto também deverão ser incluídas nesta lista.
+
+To Do: Esta lista representa o Sprint Backlog. Este é o Sprint atual que estamos trabalhando.
+
+Pronto para trabalhar: Tarefas que já estão completamente descritas e livres de impedimentos para serem trabalhadas são enviadas para essa lista pelo Scrum Master
+
+Em andamento: Quando uma tarefa foi iniciada, ela é movida para cá.
+
+Dev Complete: As terefas que foram finalizadas são movidas para essa lista, onde passam a ser revisadas e testadas.
+
+Concluído: nesta lista são colocadas as tarefas que passaram pelos testes e controle de qualidade e estão prontas para serem entregues ao usuário. Não há mais edições ou revisões possíveis, ele está agendado e pronto para a ação.
+
+
+| Foto | Especificação |
+| ------ | -------------- |
+![kanban](</docs/img/Kanban git hub.png>) | imagem do quadro Kanban 
 ### Ferramentas
 
 As ferramentas empregadas no projeto são:
