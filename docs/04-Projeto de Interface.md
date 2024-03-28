@@ -8,17 +8,44 @@ Visão geral da interação do usuário pelas telas do sistema e protótipo inte
  Apresente as principais interfaces da plataforma. Discuta como ela foi elaborada de forma a atender os requisitos funcionais, não funcionais e histórias de usuário abordados nas <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a>.
 
 ## Diagrama de Fluxo
-
-O diagrama apresenta o estudo do fluxo de interação do usuário com o sistema interativo e  muitas vezes sem a necessidade do desenho do design das telas da interface. Isso permite que o design das interações seja bem planejado e gere impacto na qualidade no design do wireframe interativo que será desenvolvido logo em seguida.
-
-O diagrama de fluxo pode ser desenvolvido com “boxes” que possuem internamente a indicação dos principais elementos de interface - tais como menus e acessos - e funcionalidades, tais como editar, pesquisar, filtrar, configurar - e a conexão entre esses boxes a partir do processo de interação. Você pode ver mais explicações e exemplos https://www.lucidchart.com/blog/how-to-make-a-user-flow-diagram.
-
-![Exemplo de Diagrama de Fluxo](img/diagramafluxo2.jpg)
-
-As referências abaixo irão auxiliá-lo na geração do artefato “Diagramas de Fluxo”.
-
-> **Links Úteis**:
-> - [Fluxograma online: seis sites para fazer gráfico sem instalar nada | Produtividade | TechTudo](https://www.techtudo.com.br/listas/2019/03/fluxograma-online-seis-sites-para-fazer-grafico-sem-instalar-nada.ghtml)
+> **Fluxo de Cadastro**:
+> ![Fluxo de Cadastro](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t6-repoinsight/assets/80174882/84311872-55e0-4d63-b467-6645a742214a)
+>
+> **Fluxo de Login**:
+> ![Fluxo de Login](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t6-repoinsight/assets/80174882/f63a6a2a-1057-4f0a-870e-33c65869be85)
+>
+> **Fluxo Logout**:
+> ![Fluxo Logout](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t6-repoinsight/assets/80174882/649cd292-cba9-43a6-9000-1d59b28a1a8a)
+>
+> **Fluxo Troca de senha**:
+> ![Fluxo Troca de senha](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t6-repoinsight/assets/80174882/eb1f9a7f-2859-434e-a1e8-c86311b096c1)
+>
+> **Fluxo Inserir Repositório**:
+> ![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t6-repoinsight/assets/80174882/3de771ee-1099-4c5c-b689-5f7a8a406270)
+>
+> **Fluxo Pagina do Repositório**:
+> ![Fluxo Pagina do Repositório](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t6-repoinsight/assets/80174882/2f645d6b-69fc-436b-bed3-9d5aeb7972d0)
+>
+> **Fluxo Remover um Repositório**:
+> ![Fluxo Remover um Repositório](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t6-repoinsight/assets/80174882/24d2ac27-d25f-4053-9d86-40bb9e74dc4b)
+>
+> **Fluxo Tornar um Repositório favorito**:
+> ![Fluxo Tornar um Repositório favorito](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t6-repoinsight/assets/80174882/68f96ecd-da53-44d9-bd65-2a06bab2faaf)
+>
+> **Fluxo Filtrar repositórios favoritos**:
+> ![Fluxo Tornar um Repositório favorito](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t6-repoinsight/assets/80174882/41cd1a22-59ac-438a-ad85-ad06311e25c5)
+>
+> **Fluxo Alterar visualização da Pagina do Repositório entre Repositório e Usuários**:
+> ![Fluxo Alterar visualização da Pagina do Repositório entre Repositório e Usuários](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t6-repoinsight/assets/80174882/4cfae47b-cc3f-47dc-9b47-9db2b6ae0895)
+>
+> **Fluxo Alterar visualização da Pagina do Repositório entre Commits e PRs**:
+> ![Fluxo Alterar visualização da Pagina do Repositório entre Commits e PRs](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t6-repoinsight/assets/80174882/a3a86f5b-9f5e-40a2-baea-bcf8ddda80c3)
+>
+> **Fluxo Acesse um Commit**:
+> ![Fluxo Acesse um Commit](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t6-repoinsight/assets/80174882/5ec555c2-d178-48b7-b82d-8944ec231988)
+>
+> **Fluxo Acesse um PR**:
+> ![Fluxo Acesse um PR](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t6-repoinsight/assets/80174882/33657acc-d604-403b-9888-5fc1c0dad2e3)
 
 ## Wireframes
 
