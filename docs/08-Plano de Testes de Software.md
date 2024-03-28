@@ -1,6 +1,6 @@
 # Plano de Testes de Software
 
-| Caso de Teste  |  CT-01 – Sign Up e Sign In |
+| Caso de Teste  |                    CT-01 – Sign Up e Sign In               |
 |---|---|
 |Objetivo| Verificar se o processo de registro (Sign Up) e login (Sign In) estão funcionando corretamente.|
 |Passos|1- Acessar o navegador.|
@@ -15,19 +15,7 @@
 || - O usuário deve ser capaz de fazer login após o registro.|
 || - Os redirecionamentos devem funcionar conforme o esperado.|
 
-| Caso de Teste  |  CT-02 – Gestor de Repositórios - Adicionar Repositório |
-|---|---|
-|Objetivo| Verificar se é possível adicionar um repositório corretamente usando o Gestor de Repositórios.|
-|Passos|1- Logar na plataforma.|
-||2- Acessar a tela Home.|
-||3- Clicar na opção "Adicionar Repositório".|
-||4- Preencher o campo de URL do repositório com uma URL válida.|
-||5- Confirmar a adição do repositório.|
-||6- Verificar se o repositório foi adicionado corretamente na lista de repositórios.|
-|Critérios de Êxito| - O usuário deve ser capaz de adicionar um repositório com sucesso.|
-|| - O repositório adicionado deve aparecer na lista de repositórios.|
-
-| Caso de Teste  |  CT-02 – Gestor de Repositórios - Adicionar Repositório |
+| Caso de Teste  |     CT-02 – Gestor de Repositórios - Adicionar Repositório  |
 |---|---|
 |Objetivo| Verificar se é possível adicionar um repositório corretamente usando o Gestor de Repositórios.|
 |Passos|1- Logar na plataforma.|
