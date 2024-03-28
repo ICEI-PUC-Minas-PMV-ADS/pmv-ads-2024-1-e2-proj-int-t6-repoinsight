@@ -13,7 +13,8 @@
 ||8-      Verificar se é redirecionado para a tela Home.|
 |Critérios de Êxito| - O usuário deve ser capaz de se registrar com sucesso.|
 || - O usuário deve ser capaz de fazer login após o registro.|
-|| - Os redirecionamentos devem funcionar conforme o esperado.|
+|| - Os redirecionamentos devem funcionar conforme o esperado, garantindo que o usuário seja direcionado para as telas corretas após o registro e o login, conforme o fluxo esperado da aplicação. |
+
 
 | Caso de Teste  |     CT-02 – Gestor de Repositórios - Adicionar Repositório  |
 |---|---|
@@ -25,8 +26,7 @@
 ||5-       Confirmar a adição do repositório.|
 ||6-       Verificar se o repositório foi adicionado corretamente na lista de repositórios.|
 |Critérios de Êxito| - O usuário deve ser capaz de adicionar um repositório com sucesso.|
-|| - O repositório adicionado deve aparecer na lista de repositórios.|
-|| - As métricas e commits/PRs relacionados devem ser exibidos corretamente de acordo com a tag selecionada.|
+|| - O repositório adicionado deve aparecer na lista de repositórios da plataforma, garantindo que o usuário possa visualizá-lo facilmente após a adição. |
 
 | Caso de Teste  |  CT-03 – Tela Repositório - Seleção de Modo de Visualização |
 |---|---|
