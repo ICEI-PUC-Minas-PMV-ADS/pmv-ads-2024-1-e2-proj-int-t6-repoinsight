@@ -16,6 +16,7 @@ Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo de
 * Joao Pedro Campos Carvalho dos Santos
 * Lucas Antonio Riboli
 * Victor Ornelas da Silva
+* Thiago Luiz Clemente
 
 ## Orientador
 
