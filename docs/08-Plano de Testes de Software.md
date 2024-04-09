@@ -3,17 +3,8 @@
 | Caso de Teste  |                    CT-01 – Sign Up e Sign In               |
 |---|---|
 |Objetivo| Verificar se o processo de registro (Sign Up) e login (Sign In) estão funcionando corretamente.|
-|Passos|1-      Acessar o navegador.    |
-||2-      Informar o endereço do site.  | 
-||3-      Clicar no botão "Registrar".  |
-||4-      Preencher o formulário com um e-mail e senha válidos.  |
-||5-      Verificar se é redirecionado para a tela de Sign In.|
-||6-      Preencher o formulário de Sign In com o e-mail e senha cadastrados.|
-||7-      Enviar o formulário.|
-||8-      Verificar se é redirecionado para a tela Home.|
-|Critérios de Êxito| - O usuário deve ser capaz de se registrar com sucesso.|
-|| - O usuário deve ser capaz de fazer login após o registro.|
-|| - Os redirecionamentos devem funcionar conforme o esperado, garantindo que o usuário seja direcionado para as telas corretas após o registro e o login, conforme o fluxo esperado da aplicação. |
+|Passos|1-      Acessar o navegador. <br> 2-      Informar o endereço do site.  <br> 3-      Clicar no botão "Registrar".  <br> 4-      Preencher o formulário com um e-mail e senha válidos.  <br> 5-      Verificar se é redirecionado para a tela de Sign In. <br> 6-      Preencher o formulário de Sign In com o e-mail e senha cadastrados.<br> 7-      Enviar o formulário. <br> 8-      Verificar se é redirecionado para a tela Home.|
+Critérios de Êxito| - O usuário deve ser capaz de se registrar com sucesso. <br> - O usuário deve ser capaz de fazer login após o registro. <br> - Os redirecionamentos devem funcionar conforme o esperado, garantindo que o usuário seja direcionado para as telas corretas após o registro e o login, conforme o fluxo esperado da aplicação. |
 
 
 | Caso de Teste  |     CT-02 – Gestor de Repositórios - Adicionar Repositório  |
