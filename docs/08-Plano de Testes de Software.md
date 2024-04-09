@@ -20,6 +20,5 @@ Critérios de Êxito| - O usuário deve ser capaz de se registrar com sucesso. <
 | Requisitos Associados | RF-003, RF-004, RF-005,  RF-007,  RF-008,  RF-009|
 |Objetivo| Verificar se o usuário pode selecionar corretamente o modo de visualização na Tela Repositório.|
 |Passos|1-       Logar na plataforma. <br> 2-       Acessar a tela de um repositório específico. <br> 3-       Na tabela de repositório e usuários, selecionar uma tag de repositório. <br> 4-       Verificar se as métricas e commits/PRs relacionados ao repositório são exibidos. <br> 5-       Na tabela de repositório e usuários, selecionar uma tag de usuário. <br> 6-       Verificar se as métricas e commits/PRs relacionados ao usuário são exibidos.|
-|Critérios de Êxito| - O usuário deve ser capaz de selecionar corretamente as tags de repositório e usuário. <br>
-<br> - As métricas e commits/PRs relacionados devem ser exibidos corretamente de acordo com a tag selecionada.|
+|Critérios de Êxito| - O usuário deve ser capaz de selecionar corretamente as tags de repositório e usuário. <br> - As métricas e commits/PRs relacionados devem ser exibidos corretamente de acordo com a tag selecionada.|
 
