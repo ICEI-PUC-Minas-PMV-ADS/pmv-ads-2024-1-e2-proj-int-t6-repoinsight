@@ -15,11 +15,21 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Diagrama de
 
 ## Modelo ER (Projeto Conceitual)
 
-O Modelo ER representa através de um diagrama como as entidades (coisas, objetos) se relacionam entre si na aplicação interativa.
+O modelo ER para o projeto RepoInsight consiste em três entidades principais: Usuários, Repositórios e Configuração de Busca.
 
-Sugestão de ferramentas para geração deste artefato: LucidChart e Draw.io.
+Usuários: Representa as pessoas que utilizam o sistema. Pode incluir atributos como nome, email, senha, github-id e id.
 
-A referência abaixo irá auxiliá-lo na geração do artefato “Modelo ER”.
+Repositórios: Refere-se aos modelos quantitativos do repositorio. Pode incluir atributos como nome-repo, favorito, quantidade-contribuinte, quantidade-branches, quantidade-commits, quantidade-pr, data-alteracao, data-visita, watch e id
+
+Configuração de Busca: Descreve as preferências de busca de cada usuário. Pode incluir atributos como tipo=busca, tipo-filtro, tipo-mudanca e id.
+
+Relacionamentos entre essas entidades podem incluir:
+
+Um usuário pode estar associado a vários repositórios (um-para-muitos), indicando quais repositórios eles têm acesso.
+
+Um usuário pode ter um tipo de configurações de busca (um-pra-um).
+
+Este modelo fornece uma estrutura clara para representar as interações entre os usuários, os repositórios e as configurações de busca dentro do sistema RepoInsight.
 
 > - [Modelo ER RepoInsight](img/MER.jpg)
 
