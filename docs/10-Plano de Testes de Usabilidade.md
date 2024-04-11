@@ -1,15 +1,13 @@
 # Plano de Testes de Usabilidade
 
-Os testes de usabilidade permitem avaliar a qualidade da interface com o usuário da aplicação interativa.
+| Tarefa | Objetivos | Critérios de Avalição de Usabilidade | Coletade de Dados | Análise dos Resultados | Recomendações |
+|--- |--- |--- |--- |--- |--- |
+| Adicionar um repositório à plataforma. | Avaliar a facilidade e eficácia do processo de adição de um repositório, identificando possíveis pontos de dificuldade para os usuários. | - Tempo médio necessário para adicionar um repositório.
+- Taxa de sucesso na adição do repositório. | Observação direta e registros do tempo gasta para a conclusão do processo. | - Análise do tempo médio gasto pelos participantes na conclusão da tarefa. - Cálculo da taxa de sucesso na adição do repositório. | Sugestões para a melhoria da aplicação. |
 
-Um plano de teste de usabilidade deverá conter: o detalhamento dos objetivos (em função dos requisitos levantados/implementados), dos critérios que serão utilizados para a seleção dos participantes, dos procedimentos a serem adotados pelos condutores de teste (por exemplo: os testes serão presenciais ou remotos? o método será observação direta, medição ou avaliação?), das tarefas a serem executadas, dos dados a serem coletados (quantidade de cliques, número de erros, tempo etc.), a ordem de execução das tarefas e das etapas da sessão de teste, recursos demandados, métricas coletadas etc.
+| Selecionar um repositório e remover/duplicar. | Avaliar a facilidade de gerenciamento de repositórios, incluindo a seleção, remoção e duplicação, identificando possíveis dificuldades ou confusões. | - Eficiência na seleção, remoção e duplicação de repositórios. - Taxa de sucesso na realização das ações de remoção e duplicação. | Observação direta dos participantes enquanto realizam as ações de seleção, remoção e duplicação. | Análise da eficiência na realização das ações de gerenciamento de repositórios. | Sugestões para a melhoria da aplicação. |
 
-Para cada voluntário do teste, é fundamental coletar e apresentar todos os dados/métricas previamente definidos, mas não se esqueça: atendendo à LGPD (Lei Geral de Proteção de Dados), nenhum dado sensível, que permita identificar o voluntário, deverá ser apresentado).
+| Realizar uma pesquisa por um repositório específico | Avaliar a eficácia da funcionalidade de pesquisa na localização de repositórios específicos, identificando possíveis problemas de usabilidade ou de precisão nos resultados da pesquisa. | - Eficiência na realização da pesquisa por um repositório específico. - Precisão e relevância dos resultados da pesquisa. - Facilidade de uso da interface de pesquisa. | Observação direta dos participantes enquanto realizam a pesquisa por um repositório.| - Análise da eficiência na realização da pesquisa e no tempo gasto pelos participantes.
+- Avaliação da precisão e relevância dos resultados da pesquisa. | Sugestões para a melhoria da aplicação. |
 
-As referências abaixo irão auxiliá-lo na geração do artefato "Plano de Testes de Usabilidade".
-
-> **Links Úteis**:
-> - [Teste De Usabilidade: O Que É e Como Fazer Passo a Passo (neilpatel.com)](https://neilpatel.com/br/blog/teste-de-usabilidade/)
-> - [Teste de usabilidade: tudo o que você precisa saber! | by Jon Vieira | Aela.io | Medium](https://medium.com/aela/teste-de-usabilidade-o-que-voc%C3%AA-precisa-saber-39a36343d9a6/)
-> - [Planejando testes de usabilidade: o que (e o que não) fazer | iMasters](https://imasters.com.br/design-ux/planejando-testes-de-usabilidade-o-que-e-o-que-nao-fazer/)
-> - [Ferramentas de Testes de Usabilidade](https://www.usability.gov/how-to-and-tools/resources/templates.html)
+| Acessar o histórico de repositórios visitados | Avaliar a facilidade de acesso e utilidade do histórico de repositórios visitados, identificando possíveis melhorias na usabilidade dessa funcionalidade. | - Facilidade de acesso ao histórico de repositórios visitados. - Facilidade de navegação e interação com o histórico. | Observação direta dos participantes enquanto acessam e interagem com o histórico de repositórios visitados. | - Avaliação da facilidade de acesso e utilidade do histórico de repositórios visitados. - Identificação de possíveis pontos de confusão ou dificuldade na interação com o histórico. | Sugestões para a melhoria da aplicação. |
