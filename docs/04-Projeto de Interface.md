@@ -9,7 +9,7 @@ Visão geral da interação do usuário pelas telas do sistema e protótipo inte
 
 ## Diagrama de Fluxo
 > **Fluxo de Cadastro**:
-> ![Fluxo de Cadastro](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t6-repoinsight/assets/80174882/84311872-55e0-4d63-b467-6645a742214a)
+> ![Fluxo de Cadastro](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t6-repoinsight/assets/80174882/3a37c034-9aac-4803-b8a7-2e37bc21200a)
 >
 > **Fluxo de Login**:
 > ![Fluxo de Login](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t6-repoinsight/assets/80174882/f63a6a2a-1057-4f0a-870e-33c65869be85)
