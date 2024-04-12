@@ -6,3 +6,21 @@
 | Selecionar um repositório e remover/duplicar. | Avaliar a facilidade de gerenciamento de repositórios, incluindo a seleção, remoção e duplicação, identificando possíveis dificuldades ou confusões. | - Eficiência na seleção, remoção e duplicação de repositórios.  <br> - Taxa de sucesso na realização das ações de remoção e duplicação. | Observação direta dos participantes enquanto realizam as ações de seleção, remoção e duplicação. | Análise da eficiência na realização das ações de gerenciamento de repositórios. | Sugestões para a melhoria da aplicação. |
 | Realizar uma pesquisa por um repositório específico | Avaliar a eficácia da funcionalidade de pesquisa na localização de repositórios específicos, identificando possíveis problemas de usabilidade ou de precisão nos resultados da pesquisa. | - Eficiência na realização da pesquisa por um repositório específico.  <br> - Precisão e relevância dos resultados da pesquisa.  <br> -  Facilidade de uso da interface de pesquisa. | Observação direta dos participantes enquanto realizam a pesquisa por um repositório.| - Análise da eficiência na realização da pesquisa e no tempo gasto pelos participantes  <br> - Avaliação da precisão e relevância dos resultados da pesquisa. | Sugestões para a melhoria da aplicação. |
 | Acessar o histórico de repositórios visitados | Avaliar a facilidade de acesso e utilidade do histórico de repositórios visitados, identificando possíveis melhorias na usabilidade dessa funcionalidade. | - Facilidade de acesso ao histórico de repositórios visitados.  <br> - Facilidade de navegação e interação com o histórico. | Observação direta dos participantes enquanto acessam e interagem com o histórico de repositórios visitados. | - Avaliação da facilidade de acesso e utilidade do histórico de repositórios visitados.  <br> - Identificação de possíveis pontos de confusão ou dificuldade na interação com o histórico. | Sugestões para a melhoria da aplicação. |
+
+| Caso de Teste  |              CT-03 -  Navegadores                   |
+|---|---|
+| Requisitos Associados |RNF-003- A aplicação deve ser totalmente compatível com os principais navegadores utilizados do mercado (Google Chrome, Mozila Firefox, Microsoft Edge, Apple Safari e Opera).|
+|Objetivo| Confirmar se o usuário consegue visualizar a aplicação interativa em outros navegadores.|
+|Passos| -1. Acessar o Navegador <br> -2. Informar o endereço do Site <br> -3. Testar a aplicação em outros navegadores.|
+ | Critério de êxito | A aplicação demonstra ser totalmente compatível com os principais navegadores do mercado. |
+
+
+
+
+
+| Caso de Teste  |              CT-04 - Intuitividade e Dinamicidade das Telas                   |
+|---|---|
+| Requisitos Associados | RFN-004 As telas da aplicação devem ser intuitivas e dinâmicas, facilitando a interação do usuário. |
+|Objetivo| Verificar se as telas da aplicação são intuitivas e dinâmicas, proporcionando uma experiência de uso agradável. |
+|Passos| -1. Acessar a aplicação <br> -2. Navegar pelas telas da aplicação <br> -3. Observar a facilidade de compreensão das informações e a interação com os elementos da tela |
+ | Critério de êxito | As telas da aplicação são intuitivas e dinâmicas, permitindo uma interação fácil e compreensão clara das informações apresentadas. |
