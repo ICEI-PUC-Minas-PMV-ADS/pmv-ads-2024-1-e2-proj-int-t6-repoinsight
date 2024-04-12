@@ -40,10 +40,7 @@ Cada pergunta acima exposta no questionário contém cinco opções de respostas
 |---|---|
 | Requisitos Associados | RFN-002 A aplicação deverá ser responsiva permitindo a visualização em diversos dispositivos de forma adequada.|
 |Objetivo| Verificar se o usuário consegue visualizar a aplicação em diferentes aparelhos. Assim, confirmando se a aplicação é totalmente responsiva.|
-|Passos|
--1. Acessar o Navegador
--2. Informar o endereço do Site
--3. Testar a aplicação em PC, Smartphones, Tablets, iPads, E-Reader e em outros diversos aparelhos.|
+|Passos| -1. Acessar o Navegador <br> -2. Informar o endereço do Site <br> -3. Testar a aplicação em PC, Smartphones, Tablets, iPads, E-Reader e em outros diversos aparelhos.|
  | Critério de êxito | Todos os meios de acesso da aplicação é responsiva em celulares, tabletes, computadores entre outros. |
 
 
