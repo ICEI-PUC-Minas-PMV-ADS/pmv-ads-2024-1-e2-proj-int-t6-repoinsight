@@ -36,40 +36,31 @@ Cada pergunta acima exposta no questionário contém cinco opções de respostas
 ## Cenários de Teste:
 
 
-| Caso de Teste  |              CT-02 - Responsividade                    |
+| Caso de Teste  |              CT-01 - Responsividade                    |
 |---|---|
 | Requisitos Associados | RFN-002 A aplicação deverá ser responsiva permitindo a visualização em diversos dispositivos de forma adequada.|
 |Objetivo| Verificar se o usuário consegue visualizar a aplicação em diferentes aparelhos. Assim, confirmando se a aplicação é totalmente responsiva.|
-|Passos|
--1. Acessar o Navegador
--2. Informar o endereço do Site
--3. Testar a aplicação em PC, Smartphones, Tablets, iPads, E-Reader e em outros diversos aparelhos.|
- | Critério de êxito | Todos os meios de acesso da aplicação é responsiva em celulares, tabletes, computadores entre outros. |
+|Passos| -1. Acessar o Navegador <br> -2. Informar o endereço do Site <br> -3. Testar a aplicação em PC, Smartphones, Tablets, iPads, E-Reader e em outros diversos aparelhos.|
+| Critério de êxito | Todos os meios de acesso da aplicação é responsiva em celulares, tabletes, computadores entre outros. |
 
 
 
 
  
-| Caso de Teste  |              CT-03 -  Navegadores                   |
+| Caso de Teste  |              CT-02 -  Navegadores                   |
 |---|---|
 | Requisitos Associados |RNF-003- A aplicação deve ser totalmente compatível com os principais navegadores utilizados do mercado (Google Chrome, Mozila Firefox, Microsoft Edge, Apple Safari e Opera).|
 |Objetivo| Confirmar se o usuário consegue visualizar a aplicação interativa em outros navegadores.|
-|Passos|
--1. Acessar o Navegador
--2. Informar o endereço do Site
--3. Testar a aplicação em outros navegadores.|
+|Passos| -1. Acessar o Navegador <br> -2. Informar o endereço do Site <br> -3. Testar a aplicação em outros navegadores.|
  | Critério de êxito | A aplicação demonstra ser totalmente compatível com os principais navegadores do mercado. |
 
 
 
 
 
-| Caso de Teste  |              CT-04 - Intuitividade e Dinamicidade das Telas                   |
+| Caso de Teste  |              CT-03 - Intuitividade e Dinamicidade das Telas                   |
 |---|---|
 | Requisitos Associados | RFN-004 As telas da aplicação devem ser intuitivas e dinâmicas, facilitando a interação do usuário. |
 |Objetivo| Verificar se as telas da aplicação são intuitivas e dinâmicas, proporcionando uma experiência de uso agradável. |
-|Passos|
--1. Acessar a aplicação
--2. Navegar pelas telas da aplicação
--3. Observar a facilidade de compreensão das informações e a interação com os elementos da tela |
- | Critério de êxito | As telas da aplicação são intuitivas e dinâmicas, permitindo uma interação fácil e compreensão clara das informações apresentadas. |
+|Passos| -1. Acessar a aplicação <br> -2. Navegar pelas telas da aplicação <br> -3. Observar a facilidade de compreensão das informações e a interação com os elementos da tela |
+| Critério de êxito | As telas da aplicação são intuitivas e dinâmicas, permitindo uma interação fácil e compreensão clara das informações apresentadas. |
