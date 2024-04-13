@@ -126,5 +126,6 @@ As ferramentas empregadas no projeto são:
 - Lucidchart (criação de diagramas)
 - Excalidraw (criação de wireframe)
 - Miro (criação de diagramas)
+- DrawIo (criação de diagramas)
 
 O editor de código foi escolhido porque ele possui uma integração com o sistema de versão, além de possuir extensão .NET que é essencial para o desenvolvimento da aplicação C#. As ferramentas de comunicação utilizadas possuem integração semelhante e são recomendada pela universidade, por isso foram selecionadas. Por fim, para criar diagramas utilizamos as ferramentas que melhor captaram as necessidades da nossa solução. Para criação do wireframe a ferramenta foi escolhida por permitir a edição colaborativa.
