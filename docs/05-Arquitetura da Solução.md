@@ -1,7 +1,5 @@
 # Arquitetura da Solução
 
-<span style="color:red">Pré-requisitos: <a href="3-Projeto de Interface.md"> Projeto de Interface</a></span>
-
 Definição de como o software é estruturado em termos dos componentes que fazem parte da solução e do ambiente de hospedagem da aplicação.
 
 ## Diagrama de Classes
@@ -20,7 +18,7 @@ Usuários: Representa as pessoas que utilizam o sistema. Pode incluir atributos 
 
 Repositórios: Refere-se aos modelos quantitativos do repositorio. Pode incluir atributos como nome-repo, favorito, quantidade-contribuinte, quantidade-branches, quantidade-commits, quantidade-pr, data-alteracao, data-visita, watch e id
 
-Configuração de Busca: Descreve as preferências de busca de cada usuário. Pode incluir atributos como tipo=busca, tipo-filtro, tipo-mudanca e id.
+Configuração de Busca: Descreve as preferências de busca de cada usuário. Pode incluir atributos como tipo-filtro, tipo-mudanca e id.
 
 Relacionamentos entre essas entidades podem incluir:
 
