@@ -30,13 +30,13 @@ Um usuário pode ter um tipo de configurações de busca (um-pra-um).
 
 Este modelo fornece uma estrutura clara para representar as interações entre os usuários, os repositórios e as configurações de busca dentro do sistema RepoInsight.
 
-> - [Modelo ER RepoInsight](img/MER.jpg)
+![Modelo ER RepoInsight](img/ModeloER.png)
 
 ## Projeto da Base de Dados
 
 O projeto da base de dados corresponde à representação das entidades e relacionamentos identificadas no Modelo ER, no formato de tabelas, com colunas e chaves primárias/estrangeiras necessárias para representar corretamente as restrições de integridade.
  
-Para mais informações, consulte o microfundamento "Modelagem de Dados".
+![Projeto da Base de Dados](img/projeto_base_dados.svg)
 
 ## Tecnologias Utilizadas
 
