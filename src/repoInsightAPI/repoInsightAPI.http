@@ -1,0 +1,6 @@
+@repoInsightAPI_HostAddress = http://localhost:5159
+
+GET {{repoInsightAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
