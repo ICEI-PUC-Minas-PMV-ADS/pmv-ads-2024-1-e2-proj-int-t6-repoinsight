@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "vue-router": "^4.3.2"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^5.0.8"
+  }
+}

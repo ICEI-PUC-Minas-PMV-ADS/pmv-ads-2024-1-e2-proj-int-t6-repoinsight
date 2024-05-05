@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lucas\\projetos\\pmv-ads-2024-1-e2-proj-int-t6-repoinsight\\src\\repoInsightAPI\\repoInsightAPI.csproj": {}
+    "C:\\Users\\joaop\\OneDrive\\Documentos\\Projetos HTML e CSS\\pmv-ads-2024-1-e2-proj-int-t6-repoinsight\\src\\repoInsightAPI\\repoInsightAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lucas\\projetos\\pmv-ads-2024-1-e2-proj-int-t6-repoinsight\\src\\repoInsightAPI\\repoInsightAPI.csproj": {
+    "C:\\Users\\joaop\\OneDrive\\Documentos\\Projetos HTML e CSS\\pmv-ads-2024-1-e2-proj-int-t6-repoinsight\\src\\repoInsightAPI\\repoInsightAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lucas\\projetos\\pmv-ads-2024-1-e2-proj-int-t6-repoinsight\\src\\repoInsightAPI\\repoInsightAPI.csproj",
+        "projectUniqueName": "C:\\Users\\joaop\\OneDrive\\Documentos\\Projetos HTML e CSS\\pmv-ads-2024-1-e2-proj-int-t6-repoinsight\\src\\repoInsightAPI\\repoInsightAPI.csproj",
         "projectName": "repoInsightAPI",
-        "projectPath": "C:\\Users\\lucas\\projetos\\pmv-ads-2024-1-e2-proj-int-t6-repoinsight\\src\\repoInsightAPI\\repoInsightAPI.csproj",
-        "packagesPath": "C:\\Users\\lucas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lucas\\projetos\\pmv-ads-2024-1-e2-proj-int-t6-repoinsight\\src\\repoInsightAPI\\obj\\",
+        "projectPath": "C:\\Users\\joaop\\OneDrive\\Documentos\\Projetos HTML e CSS\\pmv-ads-2024-1-e2-proj-int-t6-repoinsight\\src\\repoInsightAPI\\repoInsightAPI.csproj",
+        "packagesPath": "C:\\Users\\joaop\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\joaop\\OneDrive\\Documentos\\Projetos HTML e CSS\\pmv-ads-2024-1-e2-proj-int-t6-repoinsight\\src\\repoInsightAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\lucas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\joaop\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
