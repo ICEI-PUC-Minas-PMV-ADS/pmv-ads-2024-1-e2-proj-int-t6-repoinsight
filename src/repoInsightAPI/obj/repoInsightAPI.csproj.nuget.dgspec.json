@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lucas\\projetos\\pmv-ads-2024-1-e2-proj-int-t6-repoinsight\\src\\repoInsightAPI\\repoInsightAPI.csproj": {}
+    "C:\\Users\\thiag\\OneDrive\\Área de Trabalho\\clone faculdade\\pmv-ads-2024-1-e2-proj-int-t6-repoinsight\\src\\repoInsightAPI\\repoInsightAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lucas\\projetos\\pmv-ads-2024-1-e2-proj-int-t6-repoinsight\\src\\repoInsightAPI\\repoInsightAPI.csproj": {
+    "C:\\Users\\thiag\\OneDrive\\Área de Trabalho\\clone faculdade\\pmv-ads-2024-1-e2-proj-int-t6-repoinsight\\src\\repoInsightAPI\\repoInsightAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lucas\\projetos\\pmv-ads-2024-1-e2-proj-int-t6-repoinsight\\src\\repoInsightAPI\\repoInsightAPI.csproj",
+        "projectUniqueName": "C:\\Users\\thiag\\OneDrive\\Área de Trabalho\\clone faculdade\\pmv-ads-2024-1-e2-proj-int-t6-repoinsight\\src\\repoInsightAPI\\repoInsightAPI.csproj",
         "projectName": "repoInsightAPI",
-        "projectPath": "C:\\Users\\lucas\\projetos\\pmv-ads-2024-1-e2-proj-int-t6-repoinsight\\src\\repoInsightAPI\\repoInsightAPI.csproj",
-        "packagesPath": "C:\\Users\\lucas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lucas\\projetos\\pmv-ads-2024-1-e2-proj-int-t6-repoinsight\\src\\repoInsightAPI\\obj\\",
+        "projectPath": "C:\\Users\\thiag\\OneDrive\\Área de Trabalho\\clone faculdade\\pmv-ads-2024-1-e2-proj-int-t6-repoinsight\\src\\repoInsightAPI\\repoInsightAPI.csproj",
+        "packagesPath": "C:\\Users\\thiag\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\thiag\\OneDrive\\Área de Trabalho\\clone faculdade\\pmv-ads-2024-1-e2-proj-int-t6-repoinsight\\src\\repoInsightAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\lucas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\thiag\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,20 +34,23 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "HotChocolate.AspNetCore.HttpPost": {
+              "target": "Package",
+              "version": "[10.5.5, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[8.0.4, )"
+            },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.4.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -73,7 +76,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
