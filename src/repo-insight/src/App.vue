@@ -1,17 +1,12 @@
 <template>
-  <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-  <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
   <SignInForm />
   <router-view/>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
-// import SignInForm from './components/SignInForm.vue';
 import SignInForm from './components/SignInForm.vue';
 
 export default {
-  // name: 'App',
   components: {
     SignInForm,
   }

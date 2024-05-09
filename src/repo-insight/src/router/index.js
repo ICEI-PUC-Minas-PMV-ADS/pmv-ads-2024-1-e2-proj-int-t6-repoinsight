@@ -8,7 +8,6 @@ const router = createRouter({
       name: 'SignIn',
       component: () => import('@/views/SignIn.vue')
     },
-    // Adicione outras rotas conforme necessário
   ]
 })
 

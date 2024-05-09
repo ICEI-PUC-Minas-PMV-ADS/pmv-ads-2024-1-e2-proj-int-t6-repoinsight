@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("repoInsightAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+135c1320082909b3479211981dea8648b481b303")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c6edeacb3a4e6c6a7b362f10233c776828821e5f")]
 [assembly: System.Reflection.AssemblyProductAttribute("repoInsightAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("repoInsightAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
