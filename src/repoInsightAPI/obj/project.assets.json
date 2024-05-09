@@ -3221,19 +3221,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\thiag\\.nuget\\packages\\": {}
+    "C:\\Users\\joaop\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\thiag\\OneDrive\\Área de Trabalho\\clone faculdade\\pmv-ads-2024-1-e2-proj-int-t6-repoinsight\\src\\repoInsightAPI\\repoInsightAPI.csproj",
+      "projectUniqueName": "C:\\Users\\joaop\\OneDrive\\Documentos\\Projetos HTML e CSS\\pmv-ads-2024-1-e2-proj-int-t6-repoinsight\\src\\repoInsightAPI\\repoInsightAPI.csproj",
       "projectName": "repoInsightAPI",
-      "projectPath": "C:\\Users\\thiag\\OneDrive\\Área de Trabalho\\clone faculdade\\pmv-ads-2024-1-e2-proj-int-t6-repoinsight\\src\\repoInsightAPI\\repoInsightAPI.csproj",
-      "packagesPath": "C:\\Users\\thiag\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\thiag\\OneDrive\\Área de Trabalho\\clone faculdade\\pmv-ads-2024-1-e2-proj-int-t6-repoinsight\\src\\repoInsightAPI\\obj\\",
+      "projectPath": "C:\\Users\\joaop\\OneDrive\\Documentos\\Projetos HTML e CSS\\pmv-ads-2024-1-e2-proj-int-t6-repoinsight\\src\\repoInsightAPI\\repoInsightAPI.csproj",
+      "packagesPath": "C:\\Users\\joaop\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\joaop\\OneDrive\\Documentos\\Projetos HTML e CSS\\pmv-ads-2024-1-e2-proj-int-t6-repoinsight\\src\\repoInsightAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\thiag\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\joaop\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3253,6 +3253,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -3295,7 +3300,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
