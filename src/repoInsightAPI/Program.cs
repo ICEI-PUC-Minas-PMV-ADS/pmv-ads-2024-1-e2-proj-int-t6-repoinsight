@@ -16,6 +16,23 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
+/// passando a configuração da conexão com o db
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("defaultConection")));
+
+builder.Services.Configure<CookiePolicyOptions>(options =>
+{
+    options.CheckConsentNeeded = context => true;
+    options.MinimumSameSitePolicy = SameSiteMode.None;
+});
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.AccessDeniedPath = "/Users/AcessDenied/";
+        options.LoginPath = "/Users/Login/";
+    });
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
