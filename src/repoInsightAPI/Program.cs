@@ -1,21 +1,34 @@
 using Banco;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddCors();
+
 var app = builder.Build();
+
+app.UseCors(builder => builder
+    .AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader());
 
 app.MapPost("/signin", (Usuario login) => {
     RepoDb db = new RepoDb();
-    var user = db.Usuarios
-        .Where(u => u.Nome == login.Nome && u.Senha == login.Senha);
-
-    return Results.Ok("Logado com sucesso");
+        var email = db.Usuarios.FirstOrDefault(u => u.Email == login.Email);
+    if (email == null || email.Senha != login.Senha) {
+        return Results.BadRequest(new { error = "Credenciais inválidas" });
+    }
+    return Results.Ok(new { message = "Usuário autenticado com sucesso"});
 });
 
 app.MapPost("/signup", (Usuario user) => {
     RepoDb db = new RepoDb();
+    var existingUser = db.Usuarios.FirstOrDefault(u => u.Nome == user.Nome);
+    if (existingUser != null) {
+        return Results.Conflict(new { error = "Usuário já existe"});
+    }
     db.Usuarios.Add(user);
     db.SaveChanges();
-
     return Results.Created($"/user/{user.Id}", user);
 });
 
