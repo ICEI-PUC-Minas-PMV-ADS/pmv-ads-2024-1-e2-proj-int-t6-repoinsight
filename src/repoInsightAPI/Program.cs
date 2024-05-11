@@ -30,4 +30,4 @@ app.MapPost("/signup", (Usuario user) => {
     return Results.Created($"/user/{user.Id}", user);
 });
 
-app.Run();
+app.Run("http://localhost:3000");
