@@ -121,7 +121,8 @@ Nessa etapa foram feitas as partes citadas anteriormente no planejamento. Dividi
 A etapa 3 foi realizada de 15/04/24 a 12/05/24, e teve os seguintes entregáveis:
 - POC 
 - Endpoints de login
-- tela de login
+- Endpoins de repositorio
+- Tela de login
 
 #### Execução:
 
