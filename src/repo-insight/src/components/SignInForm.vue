@@ -66,7 +66,7 @@
     methods: {
       async signIn() {
           try {
-              const response = await axios.post('http://localhost:5153/signin', {
+              const response = await axios.post('http://localhost:3000/signin', {
                   Email: this.email,
                   Senha: this.password
               });
