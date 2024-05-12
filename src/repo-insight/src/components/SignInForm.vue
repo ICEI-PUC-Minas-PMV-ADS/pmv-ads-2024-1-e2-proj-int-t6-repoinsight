@@ -65,18 +65,20 @@
     },
     methods: {
       async signIn() {
-        try {
-          const response = await axios.post('/Usuarios/SignIn', {
-            Email: this.email,
-            Senha: this.password
-          });
-          // Se o login for bem-sucedido, redirecionar para a página inicial
-          // Aqui você pode fazer algo com a resposta, como redirecionar o usuário para a página inicial ou armazenar as informações do usuário
-          console.log(response.data);
-        } catch (error) {
-          // Se houver um erro, exibir a mensagem de erro
-          this.errorMessage = 'E-mail ou senha incorretos.';
-        }
+          try {
+              const response = await axios.post('http://localhost:5153/signin', {
+                  Email: this.email,
+                  Senha: this.password
+              });
+              if (response.status === 200) {
+                  console.log('Login bem sucedido');
+              } else {
+                  console.log('Falha no login');
+              }
+          } catch (error) {
+              // Trata erros de requisição
+              console.error('Erro na requisição:', error.message);
+          }
       }
     }
   };
