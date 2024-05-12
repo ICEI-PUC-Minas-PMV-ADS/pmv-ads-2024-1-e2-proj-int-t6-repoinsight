@@ -1,30 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <title>POC</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário de Repositório</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <button onclick="fazerRequisicao()">Fazer Requisição</button>
-    <div id="resultado"></div>
-    <script>
-        function fazerRequisicao() {
-            fetch('http://localhost:3000/')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Erro ao fazer requisição');
-                }
-                return response.text();
-            })
-            .then(data => {
-                const h1 = document.createElement('h1');
-                h1.textContent = data;
-                document.getElementById('resultado').appendChild(h1);
-            })
-            .catch(error => {
-                console.error('Erro:', error);
-            });
-        }
-    </script>
+  <div class="container">
+    <h2>Adicionar Repositório</h2>
+    <form id="repoForm">
+      <label for="nome">Nome do Repositório:</label><br>
+      <input type="text" id="nome" name="nome" required><br>
+      
+      <label for="qtdContribuintes">Quantidade de Contribuintes:</label><br>
+      <input type="number" id="qtdContribuintes" name="qtdContribuintes" value="0" min="0"><br>
+      
+      <label for="qtdBranches">Quantidade de Branches:</label><br>
+      <input type="number" id="qtdBranches" name="qtdBranches" value="0" min="0"><br>
+      
+      <label for="qtdCommits">Quantidade de Commits:</label><br>
+      <input type="number" id="qtdCommits" name="qtdCommits" value="0" min="0"><br>
+      
+      <label for="qtdPrs">Quantidade de PRs:</label><br>
+      <input type="number" id="qtdPrs" name="qtdPrs" value="0" min="0"><br>
+      
+      <label for="dataCriacao">Data de Criação:</label><br>
+      <input type="datetime-local" id="dataCriacao" name="dataCriacao" required><br>
+      
+      <label for="dataAlteracao">Data de Alteração:</label><br>
+      <input type="datetime-local" id="dataAlteracao" name="dataAlteracao" required><br>
+      
+      <label for="dataVisita">Data de Visita:</label><br>
+      <input type="datetime-local" id="dataVisita" name="dataVisita" required><br>
+      
+      <input type="hidden" id="idUsuario" name="idUsuario" value="1">
+      
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+  <button id="listarRepositorios">Listar Repositórios</button>
+  <div id="listaRepositorios"></div>
+
+  <script src="script.js"></script>
 </body>
 </html>
