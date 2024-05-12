@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>POC</title>
+</head>
+<body>
+    <button onclick="fazerRequisicao()">Fazer Requisição</button>
+    <div id="resultado"></div>
+    <script>
+        function fazerRequisicao() {
+            fetch('http://localhost:3000/')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro ao fazer requisição');
+                }
+                return response.text();
+            })
+            .then(data => {
+                const h1 = document.createElement('h1');
+                h1.textContent = data;
+                document.getElementById('resultado').appendChild(h1);
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+            });
+        }
+    </script>
+</body>
+</html>
