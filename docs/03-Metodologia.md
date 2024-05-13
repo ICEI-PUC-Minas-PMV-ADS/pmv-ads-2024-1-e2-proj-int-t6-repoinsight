@@ -65,9 +65,9 @@ Concluído: nesta lista são colocadas as tarefas que passaram pelos testes e co
 
 
 
-### Etapa 1
+### Etapa 1 e 2
 
-A etapa 1 foi realizada entre os dias 20 de fevereiro de 2024 e 14 de abril de 2024, e teve os seguintes entregáveis:
+A etapa 1 e 3 foram realizadas entre os dias 20 de fevereiro de 2024 e 14 de abril de 2024, e teve os seguintes entregáveis:
 - Documentação de contexto
 - Especificação de projeto
 - Metodologia
@@ -77,7 +77,7 @@ A etapa 1 foi realizada entre os dias 20 de fevereiro de 2024 e 14 de abril de 2
 - Plano de Testes de Software
 - Plano de Testes de Usabilidade
 
-#### 1.1 Planejamento:
+#### Planejamento:
 
 - Requisitos funcionais e não funcionais 
 - Personas
@@ -93,7 +93,7 @@ A etapa 1 foi realizada entre os dias 20 de fevereiro de 2024 e 14 de abril de 2
 - Documentação da metodologia 
 - Documentação do contexto
 
-#### 1.2 Execução:
+#### Execução:
 Aqui foram planejadas e elaboradas as ideias do projeto, avaliando e executando os requisitos pedidos no trabalho . O grupo se reuniu através das plataformas Teams e WhatsApp para discutir as ideias, fazer planejamentos e definir horários para a realização das tarefas. Várias ideias foram sugeridas antes de entrarmos em comum acordo, escolhendo assim a melhor ideia de projeto.
 
 Nessa etapa foram feitas as partes citadas anteriormente no planejamento. Dividimos as tarefas durante as reuniões semanais feitas na terça-feira e quinta-feira à noite utilizando a plataforma Teams. As tarefas foram divididas entre o grupo mediante a disponibilidade e familiaridade de cada um com algumas ferramentas. Todos tiveram participação na execução do projeto e nas discussões surgidas ao longo da etapa.
@@ -116,6 +116,20 @@ Nessa etapa foram feitas as partes citadas anteriormente no planejamento. Dividi
 ![wireframe](</docs/img/wireframee.jpg>) | wireframe da tela de login/cadastro
 
 
+### Etapa 3
+
+A etapa 3 foi realizada de 15/04/24 a 12/05/24, e teve os seguintes entregáveis:
+- POC 
+- Endpoints de login
+- Endpoins de repositorio
+- Tela de login
+
+#### Execução:
+
+Durante esta etapa de desenvolvimento, usamos .NET e Vue.js para construir uma aplicação web. Começamos configurando o ambiente e desenvolvendo os principais endpoints da API, incluindo autenticação e gestão de repositórios. Paralelamente, realizamos sessões de explicação sobre conceitos de API e aplicativos web. Isso nos deu uma base sólida para criar uma aplicação integrando eficientemente o frontend e o backend.
+
+Vale ressaltar que tivemos alguns problemas no decorrer do desenvolvimento por conta da forte enchente que atingiu o Rio Grande do Sul, tendo 2 integrantes do grupo atingidos indiretamente com o desastre, ficamos alguns periodos sem internet e/ou luz, além de estarmos prestando ajuda também ao estado que está em estado de calamidade. 
+
 
 ### Ferramentas
 
@@ -127,5 +141,7 @@ As ferramentas empregadas no projeto são:
 - Excalidraw (criação de wireframe)
 - Miro (criação de diagramas)
 - DrawIo (criação de diagramas)
+- .NET
+- Vue Js
 
 O editor de código foi escolhido porque ele possui uma integração com o sistema de versão, além de possuir extensão .NET que é essencial para o desenvolvimento da aplicação C#. As ferramentas de comunicação utilizadas possuem integração semelhante e são recomendada pela universidade, por isso foram selecionadas. Por fim, para criar diagramas utilizamos as ferramentas que melhor captaram as necessidades da nossa solução. Para criação do wireframe a ferramenta foi escolhida por permitir a edição colaborativa.

@@ -1,4 +1,5 @@
 using Banco;
+using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors();
@@ -28,6 +29,31 @@ app.MapPost("/signup", (Usuario user) => {
     db.Usuarios.Add(user);
     db.SaveChanges();
     return Results.Created($"/user/{user.Id}", user);
+});
+
+app.MapPost("/repos", (Repo novoRepo) => {
+    RepoDb db = new RepoDb();
+        db.Repos.Add(novoRepo);
+    db.SaveChanges();
+    return Results.Created($"/repos/{novoRepo.Id}", novoRepo);
+});
+
+app.MapGet("/repos", () => {
+    RepoDb db = new RepoDb();
+    var repos = db.Repos.ToList();
+    return Results.Ok(repos);
+});
+
+app.MapGet("/repos/{id}", (HttpContext context, int id) => {
+    using var db = new RepoDb();
+    var repo = db.Repos.FirstOrDefault(r => r.Id == id);
+    if (repo == null) {
+        context.Response.StatusCode = StatusCodes.Status404NotFound;
+        return context.Response.WriteAsync("Repositório não encontrado");
+    }
+    var json = JsonSerializer.Serialize(repo);
+    context.Response.ContentType = "application/json";
+    return context.Response.WriteAsync(json);
 });
 
 app.Run("http://localhost:3000");
