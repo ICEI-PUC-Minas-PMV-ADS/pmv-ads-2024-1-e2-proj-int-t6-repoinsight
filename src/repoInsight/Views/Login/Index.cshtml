@@ -1,0 +1,38 @@
+@{
+    ViewData["Title"] = "Login";
+}
+@model Usuario;
+
+<div class="flex justify-center my-[6%]">
+  <form class="p-[8%] text-center text-gray-800 bg-white border rounded-lg" asp-action="Validate" method="post">
+    <h1 class="text-3xl">Fazer Login</h1>
+    <div class="py-[5%]">ou</div>
+    <div class="bg-gray-950 text-white rounded-lg mx-10 hover:bg-gray-600">
+        <button>
+          conecte-se com GitHub
+        </button>
+    </div>
+    <div class="py-[4%]">
+      <label>E-mail</label>
+      <div>
+        <input asp-for="Email" class="bg-slate-200 rounded focus:bg-white" required>
+      </div>
+    </div>
+
+    <!-- Password field -->
+    <div class="pb-[10%]">
+      <label>Senha</label>
+      <div>
+        <input asp-for="Senha" class="bg-slate-200 rounded focus:bg-white" required>
+      </div>
+    </div>
+    <!-- Login button -->
+    <div class="bg-gray-950 text-white rounded-lg mx-10 hover:bg-gray-600">
+      <button id="button" type="submit" >Entrar</button>
+    </div>
+    <!-- Link to register a new account -->
+    <div class="pt-[8%]">
+      <p>Não possui uma conta? <a href="login.html" class="text-blue-600 hover:text-blue-300">Faça seu Cadastro</a></p>
+    </div>
+  </form>
+</div>
