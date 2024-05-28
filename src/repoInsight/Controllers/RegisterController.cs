@@ -5,12 +5,12 @@ using repoInsight.Data;
 
 namespace repoInsight.Controllers;
 
-public class HomeController : Controller
+public class RegisterController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
+    private readonly ILogger<RegisterController> _logger;
     private readonly RepoInsightContext _context;
 
-    public HomeController(ILogger<HomeController> logger, RepoInsightContext context)
+    public RegisterController(ILogger<RegisterController> logger, RepoInsightContext context)
     {
         _logger = logger;
         _context = context;
@@ -21,9 +21,13 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Privacy()
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult Insert(Usuario user)
     {
-        return View();
+        _context.Add(user);
+        _context.SaveChanges();
+        return RedirectToAction("Index", "Home");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
