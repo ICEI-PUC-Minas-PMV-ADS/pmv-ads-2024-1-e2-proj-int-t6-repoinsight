@@ -1,0 +1,22 @@
+@model repoInsight.Controllers.RepoCommitsViewModel
+
+@{
+    ViewData["Title"] = "GitHub Repository Details";
+}
+
+<h2>@Model.Repository.Name</h2>
+<p>Description: @Model.Repository.Description</p>
+<p>Stars: @Model.Repository.StargazersCount</p>
+<p>Forks: @Model.Repository.ForksCount</p>
+
+<h3>Recent Commits</h3>
+<ul>
+    @foreach (var commit in Model.Commits)
+    {
+        <li>
+            <p><strong>Author:</strong> @commit.Commit.Author.Name</p>
+            <p><strong>Date:</strong> @commit.Commit.Author.Date.ToString("yyyy-MM-dd HH:mm:ss")</p>
+            <p><strong>Message:</strong> @commit.Commit.Message</p>
+        </li>
+    }
+</ul>
