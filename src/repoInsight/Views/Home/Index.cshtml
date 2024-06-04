@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@model List<Repo>
 
 @section Header{
     <header>
@@ -98,6 +99,28 @@
     </header>
 }
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <h1 class="display-4">Welcome do @Context.Session.GetString("email")</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    @if (Model.Count > 0){
+        <h1>Repositorios</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                
+                </tr>
+            </thead>
+            <tbody>
+            
+            @foreach (var user in Model)
+                {
+                    <tr>
+                        <td>@user.Id</td>
+                        <td>@user.Nome</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
 </div>

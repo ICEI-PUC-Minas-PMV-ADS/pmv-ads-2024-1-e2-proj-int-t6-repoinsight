@@ -2,6 +2,8 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using repoInsight.Models;
 using repoInsight.Data;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.IdentityModel.Tokens;
 
 namespace repoInsight.Controllers;
 
@@ -18,7 +20,16 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View();
+        if(HttpContext.Session.GetString("email").IsNullOrEmpty()){
+            return RedirectToAction("Login", "User");
+        }
+        var repo = _context.Repo.FirstOrDefault();
+        var lista = new List<repoInsight.Models.Repo>();
+        if(repo != null){
+            lista.Add(repo);
+        }
+        return View(lista);
+        
     }
 
     public IActionResult Privacy()

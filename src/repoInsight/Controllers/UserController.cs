@@ -5,20 +5,40 @@ using repoInsight.Data;
 
 namespace repoInsight.Controllers;
 
-public class LoginController : Controller
+public class UserController : Controller
 {
-    private readonly ILogger<LoginController> _logger;
+    private readonly ILogger<UserController> _logger;
     private readonly RepoInsightContext _context;
 
-    public LoginController(ILogger<LoginController> logger, RepoInsightContext context)
+    public UserController(ILogger<UserController> logger, RepoInsightContext context)
     {
         _logger = logger;
         _context = context;
     }
 
-    public IActionResult Index()
+    public IActionResult Login()
     {
         return View();
+    }
+
+    public IActionResult Logout()
+    {
+        HttpContext.Session.Clear();
+        return RedirectToAction("Login");
+    }
+
+    public IActionResult Register()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult Insert(Usuario user)
+    {
+        _context.Add(user);
+        _context.SaveChanges();
+        return RedirectToAction("Index", "Home");
     }
 
     [HttpPost]
@@ -27,6 +47,7 @@ public class LoginController : Controller
     {
         var login = _context.Usuario.FirstOrDefault(u => u.Email == user.Email);
         if(login != null && login.Senha == user.Senha){
+            HttpContext.Session.SetString("email", user.Email);       
             return RedirectToAction("Index", "Home");
         }
         return NotFound("Nao achei :(");
