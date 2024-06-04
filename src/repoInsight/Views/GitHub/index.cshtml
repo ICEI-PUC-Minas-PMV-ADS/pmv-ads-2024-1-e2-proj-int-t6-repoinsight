@@ -1,0 +1,17 @@
+@{
+    ViewData["Title"] = "GitHub";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Repo" method="get">
+    <div>
+        <label for="owner">Owner:</label>
+        <input type="text" id="owner" name="owner" required />
+    </div>
+    <div>
+        <label for="repo">Repository:</label>
+        <input type="text" id="repo" name="repo" required />
+    </div>
+    <button type="submit">Search</button>
+</form>
