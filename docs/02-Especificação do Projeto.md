@@ -28,16 +28,16 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| Gerenciar cadastros de usuario| ALTA |
-|RF-002| Gerenciar repositorios | ALTA |
-|RF-003| Mostrar contribuintes do repositorio| ALTA |
-|RF-004| Gerenciar metricas do repositorio| ALTA |
-|RF-005| Filtrar metricas do repositorio por contribuinte e data| ALTA |
-|RF-007| Buscar Commits, PRs, Branchs e nome de arquivos| ALTA |
-|RF-008| Redirecionar o usuario para o respectivo commit, PR, Branch e arquivo| ALTA |
-|RF-009| Filtrar repositorios | MEDIA |
-|RF-010| Criar metricas por arquivos | MEDIA |
-|RF-011| Gerar insights a partir de metricas do repositorio | BAIXA |
+|RF-001| Gerenciar cadastros de usuario |ALTA|
+|RF-002| Gerenciar repositorios |ALTA|
+|RF-003| Mostrar contribuintes do repositorio |ALTA
+|RF-004| Gerenciar metricas do repositorio |Alta|
+|RF-005| Filtrar metricas do repositorio por contribuinte e data |Alta|
+|RF-007| Buscar Commits |Alta|
+|RF-008| Redirecionar o usuario para o respectivo commit |Alta|
+|RF-009| Filtrar repositorios |Médio|
+|RF-010| Criar metricas por arquivos |Médio|
+|RF-011| Gerar insights a partir de metricas do repositorio |Baixo|
 
 
 ### Requisitos não Funcionais
