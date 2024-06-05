@@ -31,17 +31,8 @@ Visão geral da interação do usuário pelas telas do sistema e protótipo inte
 > **Fluxo Filtrar repositórios favoritos**:
 > ![Fluxo Tornar um Repositório favorito](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t6-repoinsight/assets/80174882/41cd1a22-59ac-438a-ad85-ad06311e25c5)
 >
-> **Fluxo Alterar visualização da Pagina do Repositório entre Repositório e Usuários**:
-> ![Fluxo Alterar visualização da Pagina do Repositório entre Repositório e Usuários](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t6-repoinsight/assets/80174882/4cfae47b-cc3f-47dc-9b47-9db2b6ae0895)
->
-> **Fluxo Alterar visualização da Pagina do Repositório entre Commits e PRs**:
-> ![Fluxo Alterar visualização da Pagina do Repositório entre Commits e PRs](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t6-repoinsight/assets/80174882/a3a86f5b-9f5e-40a2-baea-bcf8ddda80c3)
->
 > **Fluxo Acesse um Commit**:
 > ![Fluxo Acesse um Commit](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t6-repoinsight/assets/80174882/5ec555c2-d178-48b7-b82d-8944ec231988)
->
-> **Fluxo Acesse um PR**:
-> ![Fluxo Acesse um PR](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t6-repoinsight/assets/80174882/33657acc-d604-403b-9888-5fc1c0dad2e3)
 
 ## Wireframes
 
@@ -50,5 +41,3 @@ Visão geral da interação do usuário pelas telas do sistema e protótipo inte
 | ![tela login cadastro](img/login-cadastro.png) | Tela de login ou cadastro do usuário. |
 | ![Tela principal](img/homepage.png) | Tela principal, da qual o usuário poderá cadastrar, pesquisar e acessar seus repositórios. |
 | ![Tela dados repositório. Versão commits](img/repo-page-commits-version.png) | Tela dos dados do repositório. Versão de commits. |
-| ![Tela dados repositório. Versão PR's](img/repo-page-prs-version.png) | Tela dos dados do repositório. Versão de PR's. |
-| ![Tela dados repositório. Versão arquivos](img/repo-page-files-version.png) | Tela dos dados do repositório. Versão dos arquivos. |
