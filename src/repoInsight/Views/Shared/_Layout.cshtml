@@ -6,6 +6,7 @@
     <title>@ViewData["Title"]</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body class="bg-[#FFFFFF]">
     @RenderSection("Header", required: false)
@@ -15,9 +16,8 @@
     </main>
 
     <footer>
-        <div class="container">
-            &copy; 2024 - repoInsight - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
+        <div class="relative inset-x-0 bottom-0 flex justify-center bg-gray-800 p-8 mt-10">
+            <h5 class="text-white">© 2024 - Repoinsight todos direitos reservados.</h5>
     </footer>
 </body>
 </html>
