@@ -4,18 +4,17 @@
 @model Usuario;
 
 <div class="flex justify-center my-[6%]">
+  <div id="warning" class="absolute top-0 right-0 bg-red-500 shadow-lg shadow-red-900 border-2 border-red-600 rounded mt-4 mr-2 p-3 transition-opacity duration-500 ease-in opacity-100 hidden">
+    <p>
+      @ViewBag.UserNotFound
+    </p>
+  </div>
   <form class="p-[6%] text-center text-gray-800 bg-white border rounded-lg shadow-xl" asp-action="Validate" method="post">
     <h1 class="text-3xl">Fazer Login</h1>
-    @* <div class="py-[5%]">ou</div>
-    <div class="bg-gray-950 text-white rounded-lg mx-10 hover:bg-gray-600">
-        <button>
-          conecte-se com GitHub
-        </button>
-    </div> *@
     <div class="pt-[15%] pb-[4%]">
       <label>E-mail</label>
       <div>
-        <input asp-for="Email" class="border-b-2 border-b-[#263e3e] focus:outline-none border-blue" required>
+        <input type="email" asp-for="Email" class="border-b-2 border-b-[#263e3e] focus:outline-none border-blue" required>
       </div>
     </div>
 
@@ -23,7 +22,7 @@
     <div class="pt-[4%] pb-[12%]">
       <label>Senha</label>
       <div>
-        <input asp-for="Senha" class="border-b-2 border-b-[#263e3e] focus:outline-none border-blue" required>
+        <input type="password" asp-for="Senha" class="border-b-2 border-b-[#263e3e] focus:outline-none border-blue" required>
       </div>
     </div>
     <!-- Login button -->
@@ -32,7 +31,21 @@
     </div>
     <!-- Link to register a new account -->
     <div class="pt-[8%]">
-      <p>Não possui uma conta? <a asp-controller="Register" asp-action="Index" class="text-blue-600 hover:text-blue-300">Faça seu Cadastro</a></p>
+      <p>Não possui uma conta? <a asp-controller="User" asp-action="Register" class="text-blue-600 hover:text-blue-300">Faça seu Cadastro</a></p>
     </div>
   </form>
 </div>
+
+@if (ViewBag.NotFound != null)
+{
+<script>
+    const warning = document.getElementById("warning");
+    warning.classList.toggle("hidden");
+    setTimeout(() => {
+      warning.classList.add("opacity-0");
+    }, 1300)
+    setTimeout(() => {
+      warning.classList.toggle("hidden");
+    }, 2000)
+</script>
+}

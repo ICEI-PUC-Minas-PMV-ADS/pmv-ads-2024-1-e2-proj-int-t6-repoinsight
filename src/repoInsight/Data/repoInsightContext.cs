@@ -15,7 +15,6 @@ namespace repoInsight.Data
         }
 
         public DbSet<repoInsight.Models.Usuario> Usuario { get; set; }
-        public DbSet<repoInsight.Models.Repo> Repo { get; set; }
-        public DbSet<repoInsight.Models.ConfigBusca> ConfigBusca { get; set; }        
+        public DbSet<repoInsight.Models.Repo> Repo { get; set; }      
     }
 }

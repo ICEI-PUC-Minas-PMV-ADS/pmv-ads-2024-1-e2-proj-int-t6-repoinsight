@@ -1,19 +1,19 @@
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Threading.Tasks;
 using repoInsight.Models;
+using repoInsight.Data;
+using repoInsight.Services;
 
 namespace repoInsight.Controllers
 {
     public class GitHubController : Controller
     {
-        private static readonly HttpClient client = new HttpClient();
+        private readonly ILogger<GitHubController> _logger;
+        private readonly RepoInsightContext _context;
 
-        public GitHubController()
+        public GitHubController(ILogger<GitHubController> logger, RepoInsightContext context)
         {
-            client.DefaultRequestHeaders.Add("User-Agent", "request");
+            _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
@@ -25,36 +25,12 @@ namespace repoInsight.Controllers
         [HttpGet]
         public async Task<IActionResult> Repo(string owner, string repo)
         {
-            string repoApiUrl = $"https://api.github.com/repos/{owner}/{repo}";
-            string commitsApiUrl = $"https://api.github.com/repos/{owner}/{repo}/commits";
-
-            var repoResponse = await client.GetAsync(repoApiUrl);
-            var commitsResponse = await client.GetAsync(commitsApiUrl);
-
-            if (repoResponse.IsSuccessStatusCode && commitsResponse.IsSuccessStatusCode)
+            var response = await GitHub.GetRepo(owner, repo);
+            if (response is null)
             {
-                string repoData = await repoResponse.Content.ReadAsStringAsync();
-                GithubRepository repoDetails = JsonConvert.DeserializeObject<GithubRepository>(repoData);
-
-                string commitsData = await commitsResponse.Content.ReadAsStringAsync();
-                List<GitCommit> commitDetails = JsonConvert.DeserializeObject<List<GitCommit>>(commitsData);
-
-                var viewModel = new RepoCommitsViewModel
-                {
-                    Repository = repoDetails,
-                    Commits = commitDetails
-                };
-
-                return View(viewModel);
+                return View("Error");
             }
-
-            return View("Error");
+            return View(response);
         }
-    }
-
-    public class RepoCommitsViewModel
-    {
-        public GithubRepository Repository { get; set; }
-        public List<GitCommit> Commits { get; set; }
     }
 }

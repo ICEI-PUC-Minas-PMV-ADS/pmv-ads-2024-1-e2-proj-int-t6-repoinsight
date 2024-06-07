@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-@model List<Repo>
+@model Tuple<List<Repo>, Repo, List<Repo>>;
 
 @section Header{
     <header>
@@ -14,6 +14,13 @@
                                 <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
                             </a>
                         </div>
+                    </div>
+                    <!-- Campo de busca -->
+                    <div class="flex items-center justify-end md:w-auto px-4 md:px-0 md:mx-4">
+                        <input type="text" placeholder="Search" class="w-full md:w-auto bg-gray-700 p-2 rounded text-white mx-2">
+                        <button class="bg-gray-700 p-2 rounded hover:bg-gray-600">
+                            <span class="material-icons text-white">search</span>
+                        </button>
                     </div>
                     <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
 
@@ -29,7 +36,7 @@
 
                             <!-- Dropdown menu, initially hidden -->
                             <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Conta</a>
+                                <a href="#" onclick="contaModal()" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Conta</a>
                                 <a asp-controller="User" asp-action="Logout" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Sair</a>
                             </div>
                         </div>
@@ -42,6 +49,16 @@
 
 <body class="bg-gray-900 text-white">
     <div class="flex flex-col md:flex-row">
+        <div id="warning" class="absolute top-0 right-0 bg-red-500 shadow-lg shadow-red-900 border-2 border-red-600 rounded mt-4 mr-2 p-3 transition-opacity duration-500 ease-in opacity-100 hidden">
+            <p>
+            @ViewBag.RepoNotFound
+            </p>
+        </div>
+        <div id="success" class="absolute top-0 right-0 bg-green-500 shadow-lg shadow-green-900 border-2 border-green-600 rounded mt-4 mr-2 p-3 transition-opacity duration-500 ease-in opacity-100 hidden">
+            <p>
+            @ViewBag.RepoNotFound
+            </p>
+        </div>
         <!-- Sidebar -->
         <div class="relative h-40 bg-gray-800 p-4 rounded text-white mt-2 w-full md:w-1/4 md:h-screen overflow-y-auto">
             <div class="flex items-center mb-4">
@@ -71,10 +88,12 @@
                 2024
             </div>
             <ul class="pl-4 hidden">
-                <li class="bg-white text-black border border-blue-500 rounded-md px-3 py-2 cursor-pointer flex items-center">
-                    <span class="material-icons">description</span>
-                    PROJETO-INFOGAMES
-                </li>
+                @foreach (var repo in Model.Item1){
+                    <li class="bg-white text-black border border-blue-500 rounded-md px-3 py-2 my-2 cursor-pointer flex items-center">
+                        <span class="material-icons">description</span>
+                        @Html.ActionLink(@repo.Nome, "Repo", "GitHub", new {owner = repo.Nome.Split("/")[0], repo = repo.Nome.Split("/")[1]})
+                    </li>
+                }
             </ul>
             @* <div class="relative inset-x-0 bottom-0 h-16 flex justify-center">
                 <div class="flex relative inset-x-0 bottom-0 h-16 ">
@@ -105,16 +124,8 @@
                  <!-- Botões de navegação -->
                 <div class="flex items-center space-x-2 mb-2 md:mb-0 justify-center md:justify-start">
                     <p class="font-bold text-lg">Adicionar Repositório</p>
-                    <button class="flex items-center">
+                    <button id="repo-button" onclick="repoModal()" class="flex items-center">
                         <span class="material-icons text-blue-500 hover:text-blue-700 mx-2">add</span>
-                    </button>
-                </div>
-
-                <!-- Campo de busca -->
-                <div class="flex items-center justify-end md:w-auto px-4 md:px-0 md:mx-4">
-                    <input type="text" placeholder="Search" class="w-full md:w-auto bg-gray-700 p-2 rounded text-white mx-2">
-                    <button class="bg-gray-700 p-2 rounded hover:bg-gray-600">
-                        <span class="material-icons text-white">search</span>
                     </button>
                 </div>
              </div> 
@@ -141,14 +152,100 @@
             <div>
                 <h2 class="text-lg font-bold mb-2">Últimos Visitados</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div class="bg-gray-800 h-40 rounded"></div>
-                    <div class="bg-gray-800 h-40 rounded"></div>
-                    <div class="bg-gray-800 h-40 rounded"></div>
+                    @foreach (var repo in Model.Item3){
+                        <div class="text-white bg-gray-800 h-40 rounded">@repo.Nome</div>
+                    }
                 </div>
             </div>
         </div>
     </div>
+    <div id="repo-modal" class="relative z-10 hidden" aria-labelledby="repo-modal" role="dialog" aria-modal="true">
+        <!--
+        Background backdrop, show/hide based on modal state.
 
+        Entering: "ease-out duration-300"
+        From: "opacity-0"
+        To: "opacity-100"
+        Leaving: "ease-in duration-200"
+        From: "opacity-100"
+        To: "opacity-0"
+        -->
+        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+
+        <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+            <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                <!--
+            Modal panel, show/hide based on modal state.
+
+            Entering: "ease-out duration-300"
+            From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+            To: "opacity-100 translate-y-0 sm:scale-100"
+            Leaving: "ease-in duration-200"
+            From: "opacity-100 translate-y-0 sm:scale-100"
+            To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+        -->
+                <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all pt-4 sm:my-8 sm:w-full sm:max-w-lg">
+                    <form asp-action="AddRepo" method="post">
+                        <div class="bg-white flex justify-center px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                            <div>
+                                <input asp-for="@Model.Item2.Nome" class="border-2 border-blue-400 rounded w-96 p-2" type="text" placeholder="organizacao/nome-repositorio">
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 px-4 py-3 pb-6 sm:flex sm:flex-row-reverse sm:px-6">
+                            <button type="submit"
+                                class="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 sm:ml-3 sm:w-auto">Adicionar</button>
+                            <button type="button" onclick="repoModal()"
+                                class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="conta-modal" class="relative z-10 hidden" aria-labelledby="conta-modal" role="dialog" aria-modal="true">
+        <!--
+        Background backdrop, show/hide based on modal state.
+
+        Entering: "ease-out duration-300"
+        From: "opacity-0"
+        To: "opacity-100"
+        Leaving: "ease-in duration-200"
+        From: "opacity-100"
+        To: "opacity-0"
+        -->
+        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+
+        <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+            <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                <!--
+            Modal panel, show/hide based on modal state.
+
+            Entering: "ease-out duration-300"
+            From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+            To: "opacity-100 translate-y-0 sm:scale-100"
+            Leaving: "ease-in duration-200"
+            From: "opacity-100 translate-y-0 sm:scale-100"
+            To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+        -->
+                <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all pt-4 sm:my-8 sm:w-full sm:max-w-lg">
+                    <h3>Redefinir Senha</h3>
+                    <form asp-action="AddRepo" method="post">
+                        <div class="bg-white flex justify-center px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                            <div>
+                                <input asp-for="@Model.Item2.Nome" class="border-2 border-blue-400 rounded w-96 p-2" type="text" placeholder="Nova senha">
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 px-4 py-3 pb-6 sm:flex sm:flex-row-reverse sm:px-6">
+                            <button type="submit"
+                                class="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 sm:ml-3 sm:w-auto">Atualizar</button>
+                            <button type="button" onclick="contaModal()"
+                                class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 <script>
@@ -163,35 +260,39 @@
         }
     }
 
-    document.addEventListener("DOMContentLoaded", function() {
-        // Get the button and the menu
-        const userMenuButton = document.getElementById('user-menu-button');
-        const userMenu = document.querySelector('[role="menu"][aria-labelledby="user-menu-button"]');
+    function repoModal(){
+        const repo = document.getElementById("repo-modal");
+        repo.classList.toggle("hidden");
+    }
 
-        // Function to toggle the menu visibility
-        function toggleUserMenu() {
-            const isExpanded = userMenuButton.getAttribute('aria-expanded') === 'true';
-            userMenuButton.setAttribute('aria-expanded', !isExpanded);
-            userMenu.classList.toggle('hidden');
-        }
-
-        // Add event listener to the button
-        userMenuButton.addEventListener('click', function(event) {
-            event.stopPropagation(); // Prevent the click from propagating to the document
-            toggleUserMenu();
-        });
-
-        // Hide the menu when clicking outside of it
-        document.addEventListener('click', function(event) {
-            if (!userMenu.contains(event.target) && event.target !== userMenuButton) {
-                if (userMenuButton.getAttribute('aria-expanded') === 'true') {
-                    userMenuButton.setAttribute('aria-expanded', 'false');
-                    userMenu.classList.add('hidden');
-                }
-            }
-        });
-    });
-
-
-
+    function contaModal(){
+        const repo = document.getElementById("conta-modal");
+        repo.classList.toggle("hidden");
+    }
 </script>
+@if (ViewBag.RepoNotFound != null && ViewBag.RepoNotFound == "Erro!")
+{
+<script>
+    const warning = document.getElementById("warning");
+    warning.classList.toggle("hidden");
+    setTimeout(() => {
+      warning.classList.add("opacity-0");
+    }, 1300)
+    setTimeout(() => {
+      warning.classList.toggle("hidden");
+    }, 2000)
+</script>
+}
+@if (ViewBag.RepoNotFound != null && ViewBag.RepoNotFound == "Sucesso!")
+{
+<script>
+    const success = document.getElementById("success");
+    success.classList.toggle("hidden");
+    setTimeout(() => {
+      success.classList.add("opacity-0");
+    }, 1300)
+    setTimeout(() => {
+      success.classList.toggle("hidden");
+    }, 2000)
+</script>
+}
