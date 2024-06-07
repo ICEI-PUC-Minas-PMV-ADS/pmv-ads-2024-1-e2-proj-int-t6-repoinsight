@@ -47,10 +47,13 @@ public class UserController : Controller
     {
         var login = _context.Usuario.FirstOrDefault(u => u.Email == user.Email);
         if(login != null && login.Senha == user.Senha){
-            HttpContext.Session.SetString("email", user.Email);       
+            HttpContext.Session.SetString("email", login.Email);
+            HttpContext.Session.SetString("nome", login.Nome);
             return RedirectToAction("Index", "Home");
         }
-        return NotFound("Nao achei :(");
+
+        ViewBag.UserNotFound = "Email ou Senha incorreto!";
+        return View("Login");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -58,4 +61,5 @@ public class UserController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
+
 }

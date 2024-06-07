@@ -12,45 +12,18 @@ using repoInsight.Data;
 namespace repoInsight.Migrations
 {
     [DbContext(typeof(RepoInsightContext))]
-    [Migration("20240521131816_db1")]
-    partial class db1
+    [Migration("20240607050227_db3")]
+    partial class db3
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.4")
+                .HasAnnotation("ProductVersion", "8.0.6")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("repoInsight.Models.ConfigBusca", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("IdUsuario")
-                        .HasColumnType("int")
-                        .HasColumnOrder(1);
-
-                    b.Property<string>("TpFiltro")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("TpMudanca")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ConfigBusca");
-                });
 
             modelBuilder.Entity("repoInsight.Models.Repo", b =>
                 {
@@ -60,17 +33,11 @@ namespace repoInsight.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("DataAlteracao")
-                        .HasColumnType("datetime2");
-
                     b.Property<DateTime>("DataCriacao")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("DataVisita")
                         .HasColumnType("datetime2");
-
-                    b.Property<bool>("Favorito")
-                        .HasColumnType("bit");
 
                     b.Property<int>("IdUsuario")
                         .HasColumnType("int")
@@ -93,9 +60,6 @@ namespace repoInsight.Migrations
                     b.Property<int>("QtdPrs")
                         .HasColumnType("int");
 
-                    b.Property<bool>("watch")
-                        .HasColumnType("bit");
-
                     b.HasKey("Id");
 
                     b.ToTable("Repo");
@@ -113,11 +77,6 @@ namespace repoInsight.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("GithubId")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
