@@ -9,14 +9,63 @@
 <p>Stars: @Model.Repository.StargazersCount</p>
 <p>Forks: @Model.Repository.ForksCount</p>
 
-<h3>Recent Commits</h3>
-<ul>
-    @foreach (var commit in Model.Commits)
-    {
-        <li>
-            <p><strong>Author:</strong> @commit.Commit.Author.Name</p>
-            <p><strong>Date:</strong> @commit.Commit.Author.Date.ToString("yyyy-MM-dd HH:mm:ss")</p>
-            <p><strong>Message:</strong> @commit.Commit.Message</p>
-        </li>
-    }
-</ul>
+<h1>Metricas</h1>
+<table>
+        <thead>
+            <tr>
+                <th>Quantidade de commits:</th>
+                <th>Quantidade de MRs:</th>
+            </tr>
+        </thead>
+        <tbody>
+          
+                <tr>
+                    <td><p>@Model.Commits.Count</p></td>
+                    <td><p>@Model.Commits.Count</p></td>
+                   
+                </tr>
+        </tbody>
+    </table>
+
+
+<h1>Recent Commits</h1>
+<table>
+        <thead>
+            <tr>
+                <th>Author:</th>
+                <th>Date:</th>
+                <th>Message:</th>
+            </tr>
+        </thead>
+        <tbody>
+             @foreach (var commit in Model.Commits)
+            {
+                <tr>
+                    <td><p>@commit.Commit.Author.Name</p></td>
+                    <td><p>@commit.Commit.Author.Date.ToString("yyyy-MM-dd HH:mm:ss")</p></td>
+                    <td><p>@commit.Commit.Message</p></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+<h1>MRs</h1>
+<table>
+        <thead>
+            <tr>
+                <th>Author:</th>
+                <th>Date:</th>
+                <th>Message:</th>
+            </tr>
+        </thead>
+        <tbody>
+             @foreach (var commit in Model.Commits)
+            {
+                <tr>
+                    <td><p>@commit.Commit.Author.Name</p></td>
+                    <td><p>@commit.Commit.Author.Date.ToString("yyyy-MM-dd HH:mm:ss")</p></td>
+                    <td><p>@commit.Commit.Message</p></td>
+                </tr>
+            }
+        </tbody>
+    </table>
