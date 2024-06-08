@@ -5,8 +5,11 @@ namespace repoInsight.Services;
 
 public static class GitHub
 {
-    public static async Task<RepoCommitsViewModel?> GetRepo(string owner, string repo)
+    public static async Task<RepoCommitsViewModel?> GetRepo(string nome)
     {
+        string[] repoParts = nome.Split("/");
+        (string owner, string repo) = (repoParts[0], repoParts[1]);
+
         string repoApiUrl = $"https://api.github.com/repos/{owner}/{repo}";
         string commitsApiUrl = $"https://api.github.com/repos/{owner}/{repo}/commits";
 

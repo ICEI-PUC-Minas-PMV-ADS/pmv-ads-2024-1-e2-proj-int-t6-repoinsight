@@ -25,7 +25,7 @@ namespace repoInsight.Controllers
         [HttpGet]
         public async Task<IActionResult> Repo(string owner, string repo)
         {
-            var response = await GitHub.GetRepo(owner, repo);
+            var response = await GitHub.GetRepo(owner+"/"+repo);
             if (response is null)
             {
                 return View("Error");
