@@ -8,6 +8,9 @@ public class Repo{
 
     [MaxLength(100)]
     public string Nome {get; set;}
+    [MaxLength(300)]
+    public string? Descricao {get; set;}
+    
     public int QtdContribuintes {get; set;}
     public int QtdBranches {get; set;}
     public int QtdCommits {get; set;}

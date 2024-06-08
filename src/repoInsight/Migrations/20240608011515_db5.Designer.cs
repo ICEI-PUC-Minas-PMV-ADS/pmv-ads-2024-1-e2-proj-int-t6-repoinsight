@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using repoInsight.Data;
 
@@ -11,9 +12,11 @@ using repoInsight.Data;
 namespace repoInsight.Migrations
 {
     [DbContext(typeof(RepoInsightContext))]
-    partial class RepoInsightContextModelSnapshot : ModelSnapshot
+    [Migration("20240608011515_db5")]
+    partial class db5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

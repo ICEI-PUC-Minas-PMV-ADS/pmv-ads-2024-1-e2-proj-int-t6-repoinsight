@@ -1,5 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    var url = Url.Action("Repo", "GitHub");
 }
 @model Tuple<List<Repo>, Repo, List<Repo>>;
 
@@ -91,7 +92,7 @@
                 @foreach (var repo in Model.Item1){
                     <li class="bg-white text-black border border-blue-500 rounded-md px-3 py-2 my-2 cursor-pointer flex items-center">
                         <span class="material-icons">description</span>
-                        @Html.ActionLink(@repo.Nome, "Repo", "GitHub", new {owner = repo.Nome.Split("/")[0], repo = repo.Nome.Split("/")[1]})
+                        @Html.ActionLink(@repo.Nome, "Repo", "GitHub", new {owner = repo.Nome.Split("/")[0], repo=repo.Nome.Split("/")[1]})
                     </li>
                 }
             </ul>
@@ -153,7 +154,11 @@
                 <h2 class="text-lg font-bold mb-2">Últimos Visitados</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     @foreach (var repo in Model.Item3){
-                        <div class="text-white bg-gray-800 h-40 rounded">@repo.Nome</div>
+                        <div ondblclick="redirectToRepo('@repo.Nome')" class="text-white bg-gray-800 h-40 rounded cursor-pointer">
+                            <h3>@repo.Nome</h3>
+                            <br>
+                            <p>@repo.Descricao</p>
+                        </div>
                     }
                 </div>
             </div>
@@ -188,7 +193,7 @@
                     <form asp-action="AddRepo" method="post">
                         <div class="bg-white flex justify-center px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                             <div>
-                                <input asp-for="@Model.Item2.Nome" class="border-2 border-blue-400 rounded w-96 p-2" type="text" placeholder="organizacao/nome-repositorio">
+                                <input asp-for="@Model.Item2.Nome" class="border-2 border-blue-400 rounded w-96 p-2" type="text" pattern="[\w\-]{1,}\/[\w\-]{1,}" title="Ensira no padrao org/repo" placeholder="organizacao/nome-repositorio" required>
                             </div>
                         </div>
                         <div class="bg-gray-50 px-4 py-3 pb-6 sm:flex sm:flex-row-reverse sm:px-6">
@@ -232,7 +237,7 @@
                     <form asp-action="AddRepo" method="post">
                         <div class="bg-white flex justify-center px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                             <div>
-                                <input asp-for="@Model.Item2.Nome" class="border-2 border-blue-400 rounded w-96 p-2" type="text" placeholder="Nova senha">
+                                <input asp-for="@Model.Item2.Nome" class="border-2 border-blue-400 rounded w-96 p-2" type="password" pattern="\w{8,}" placeholder="Nova senha" required>
                             </div>
                         </div>
                         <div class="bg-gray-50 px-4 py-3 pb-6 sm:flex sm:flex-row-reverse sm:px-6">
@@ -268,6 +273,11 @@
     function contaModal(){
         const repo = document.getElementById("conta-modal");
         repo.classList.toggle("hidden");
+    }
+
+    function redirectToRepo(fullName){
+        const [owner, repo,] = fullName.split("/");
+        window.open("@url?owner="+encodeURIComponent(owner)+"&repo="+encodeURIComponent(repo), "_blank");
     }
 </script>
 @if (ViewBag.RepoNotFound != null && ViewBag.RepoNotFound == "Erro!")

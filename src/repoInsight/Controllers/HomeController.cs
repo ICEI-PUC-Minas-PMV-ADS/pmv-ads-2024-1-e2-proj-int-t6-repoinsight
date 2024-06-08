@@ -4,7 +4,6 @@ using repoInsight.Models;
 using repoInsight.Data;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using repoInsight.Services;
 
 namespace repoInsight.Controllers;
@@ -37,9 +36,7 @@ public class HomeController : Controller
     public IActionResult AddRepo()
     {
         var nome = HttpContext.Request.Form["Item2.Nome"].ToString();
-        string[] repoParts = nome.Split("/");
-        (string owner, string repo) = (repoParts[0], repoParts[1]);
-        var response = GitHub.GetRepo(owner, repo);
+        var response = GitHub.GetRepo(nome);
         if (response is null)
         {
             ViewBag.RepoNotFound = "Erro!";
@@ -47,7 +44,7 @@ public class HomeController : Controller
         else
         {
             var userId =(int) (from u in _context.Usuario select u.Id).Single();
-            _context.Add(new Repo(){Nome = nome, IdUsuario = userId});
+            _context.Add(new Repo(){Nome = nome, Descricao = response.Result?.Repository?.Description, IdUsuario = userId});
             _context.SaveChanges();
             ViewBag.RepoNotFound = "Sucesso!";
         }
