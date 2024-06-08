@@ -30,6 +30,14 @@ namespace repoInsight.Controllers
             {
                 return View("Error");
             }
+            var repositorio = _context.Repo.FirstOrDefault(r => r.Nome == response.Repository.FullName);
+            if(repositorio is null)
+            {
+                return View("Error");
+            }
+            repositorio.DataVisita = DateTime.Now;
+            _context.SaveChanges();
+
             return View(response);
         }
     }

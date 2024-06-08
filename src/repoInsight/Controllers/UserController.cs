@@ -49,6 +49,8 @@ public class UserController : Controller
         if(login != null && login.Senha == user.Senha){
             HttpContext.Session.SetString("email", login.Email);
             HttpContext.Session.SetString("nome", login.Nome);
+            login.UltimoAcesso = DateTime.Now;
+            _context.SaveChanges();
             return RedirectToAction("Index", "Home");
         }
 
