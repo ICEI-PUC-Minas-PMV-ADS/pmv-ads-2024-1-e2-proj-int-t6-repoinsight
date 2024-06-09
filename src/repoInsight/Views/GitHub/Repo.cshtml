@@ -24,7 +24,6 @@
                         </button>
                     </div>
                     <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-
                         <!-- Profile dropdown -->
                         <div class="relative ml-3">
                             <div>
@@ -48,28 +47,84 @@
     </header>
 }
 
-<h2>@Model.Repository.Name</h2>
-<p>Description: @Model.Repository.Description</p>
-<p>Stars: @Model.Repository.StargazersCount</p>
-<p>Forks: @Model.Repository.ForksCount</p>
-<p>Counts commit: @Model.Commits.Count</p>
-<p>Counts contriuintes: @Model.Contributors</p>
-<p>Counts branches: @Model.Branches</p>
-<p>Counts merges: @Model.Merges</p>
-<p>Counts pulls: @Model.Pulls</p>
+<div class="grid grid-cols-2 gap-4">
+    <div>
+        <span class="font-bold">Repositorio: @Model.Repository.Name</span>
+    </div>
+    <div>
+        <span class="font-bold">Descrição: @Model.Repository.Description</span>
+    </div>
+    <div class="col-span-2">
+        <div class="grid grid-cols-7 gap-4">
+        <div class="py-4 border border-dashed rounded-lg border-slate-400 text-center">
+            <h6 class="font-bold dark:text-black">Stars</h6>
+            <h4 class="font-bold dark:text-black">@Model.Repository.StargazersCount</h4>
+        </div>
 
+        <div class="py-4 border border-dashed rounded-lg border-slate-400 text-center">
+            <h6 class="font-bold dark:text-black">Forks</h6>
+            <h4 class="font-bold dark:text-black">@Model.Repository.ForksCount</h4>
+        </div>
+        
+        <div class="py-4 border border-dashed rounded-lg border-slate-400 text-center">
+            <h6 class="font-bold dark:text-black">T. Commits</h6>
+            <h4 class="font-bold dark:text-black">@Model.Commits.Count</h4>
+        </div>
+        
+        <div class="py-4 border border-dashed rounded-lg border-slate-400 text-center">
+            <h6 class="font-bold dark:text-black">T. Contribuites</h6>
+            <h4 class="font-bold dark:text-black">@Model.Contributors</h4>
+        </div>
 
-<h3>Recent Commits</h3>
-<ul>
-    @* POR PR *@
-    @* @foreach (var commit in Model.Commits.Where(c => c.Commit.Message.Contains("Merge pull request #"))) *@
-    @* POR COMMIT *@
-    @foreach (var commit in Model.Commits.Where(c => !c.Commit.Message.Contains("Merge pull request #")))
-    {
-        <li>
-            <p><strong>Author:</strong> @commit.Commit.Author.Name</p>
-            <p><strong>Date:</strong> @commit.Commit.Author.Date.ToString("yyyy-MM-dd HH:mm:ss")</p>
-            <p><strong>Message:</strong> @commit.Commit.Message</p>
-        </li>
-    }
-</ul>
+        <div class="py-4 border border-dashed rounded-lg border-slate-400 text-center">
+            <h6 class="font-bold dark:text-black">T. Branches</h6>
+            <h4 class="font-bold dark:text-black">@Model.Branches</h4>
+        </div>
+
+        <div class="py-4 border border-dashed rounded-lg border-slate-400 text-center">
+            <h6 class="font-bold dark:text-black">T. Merges</h6>
+            <h4 class="font-bold dark:text-black">@Model.Merges</h4>
+        </div>
+
+        <div class="py-4 border border-dashed rounded-lg border-slate-400 text-center">
+            <h6 class="font-bold dark:text-black">T. Pulls</h6>
+            <h4 class="font-bold dark:text-black">@Model.Pulls</h4>
+        </div>
+        </div>
+    </div>
+
+    <div class="col-span-2">
+        <p class="text-4xl font-thin text-gray-900 dark:text-white">Commits Recentes</p>
+    </div>
+    <div class="col-span-2">
+        <div class="flex flex-col">
+            <div class="overflow-x-auto">
+                <div class="p-1.5 min-w-full inline-block align-middle">
+                    <div class="border rounded-lg shadow overflow-hidden dark:border-neutral-700 dark:shadow-gray-900">
+                        <table class="table-auto w-full divide-y divide-gray-200 dark:divide-neutral-700">
+                            <thead>
+                                <tr class="divide-x divide-gray-200 dark:divide-neutral-700">
+                                    <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-black-500 uppercase dark:text-neutral-500">Author</th>
+                                    <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-black-500 uppercase dark:text-neutral-500">Message</th>
+                                    <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-black-500 uppercase dark:text-neutral-500">Date</th>
+                                    <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-black-500 uppercase dark:text-neutral-500">URL</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 dark:divide-neutral-700">
+                                @foreach (var commit in Model.Commits.Where(c => !c.Commit.Message.Contains("Merge pull request #")))
+                                {
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">@commit.Commit.Author.Name</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">@commit.Commit.Message</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">@commit.Commit.Author.Date.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium"><a href="@commit.Commit.GitHubURL" target="_blank">Commit -></a></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
