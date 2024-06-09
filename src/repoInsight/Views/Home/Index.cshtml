@@ -17,12 +17,29 @@
                         </div>
                     </div>
                     <!-- Campo de busca -->
-                    <div class="flex items-center justify-end md:w-auto px-4 md:px-0 md:mx-4">
+                    <div class="relative flex items-center justify-end md:w-auto px-4 md:px-0 md:mx-4">
+                        <!-- Search input -->
+                        <input type="text" id="searchInput" placeholder="Search" class="w-full md:w-auto bg-gray-700 p-2 rounded text-white mx-2">
+                        <!-- Search results -->
+                        <div id="searchResults" class="absolute bg-white rounded mt-1 w-full border border-gray-300 hidden">
+                            <!-- Search results will be displayed here -->
+                        </div>
+                        <!-- Search button -->
+                        <button id="searchButton" class="bg-gray-700 p-2 rounded hover:bg-gray-600">
+                            <span class="material-icons text-white">search</span>
+                        </button>
+                    </div>
+
+                    <!-- Container to display search results -->
+                    <div id="searchResults" class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                        <!-- Search results will be displayed here -->
+                    </div>
+                    @* <div class="flex items-center justify-end md:w-auto px-4 md:px-0 md:mx-4">
                         <input type="text" placeholder="Search" class="w-full md:w-auto bg-gray-700 p-2 rounded text-white mx-2">
                         <button class="bg-gray-700 p-2 rounded hover:bg-gray-600">
                             <span class="material-icons text-white">search</span>
                         </button>
-                    </div>
+                    </div> *@
                     <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
 
                         <!-- Profile dropdown -->
@@ -281,7 +298,54 @@
         const [owner, repo,] = fullName.split("/");
         window.open("@url?owner="+encodeURIComponent(owner)+"&repo="+encodeURIComponent(repo), "_blank");
     }
+
+    const values = ["apple", "banana", "orange", "pear", "grape", "kiwi"];
+
+    // Function to filter values based on search input
+    function filterValues(searchText) {
+        return values.filter(value => value.toLowerCase().includes(searchText.toLowerCase()));
+    }
+
+    // Function to update search results
+    function updateSearchResults(searchText) {
+        const searchResultsElement = document.getElementById("searchResults");
+        const filteredValues = filterValues(searchText);
+
+        // Clear previous search results
+        searchResultsElement.innerHTML = "";
+
+        // Display filtered values
+        filteredValues.forEach(value => {
+            const listItem = document.createElement("div");
+            listItem.textContent = value;
+            searchResultsElement.appendChild(listItem);
+        });
+
+        // Show search results if there are matches, hide otherwise
+        searchResultsElement.style.display = filteredValues.length ? "block" : "none";
+    }
+
+    // Event listener for input event on search input field
+    document.getElementById("searchInput").addEventListener("input", function(event) {
+        updateSearchResults(event.target.value);
+    });
+
+    document.body.addEventListener("click", function(event) {
+        const searchInput = document.getElementById("searchInput");
+        const searchResults = document.getElementById("searchResults");
+
+        // Check if the click target is outside the search input and its results container
+        if (!searchInput.contains(event.target) && !searchResults.contains(event.target)) {
+            // Hide search results
+            searchResults.style.display = "none";
+        }
+    });
 </script>
+<style>
+    #searchResults {
+        top: calc(100% + 5px); /* Position below search input */
+    }
+</style>
 @if (ViewBag.ErrorMessage != null)
 {
 <script>
