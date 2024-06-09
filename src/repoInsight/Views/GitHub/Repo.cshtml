@@ -4,10 +4,8 @@
     ViewData["Title"] = "GitHub Repository Details";
 }
 
-<h2>@Model.Repository.Name</h2>
-<p>Description: @Model.Repository.Description</p>
-<p>Stars: @Model.Repository.StargazersCount</p>
-<p>Forks: @Model.Repository.ForksCount</p>
+<h2>Repostório: @Model.Repository.Name</h2>
+
 
 <h1>Metricas</h1>
 <table>
@@ -20,15 +18,15 @@
         <tbody>
           
                 <tr>
-                    <td><p>@Model.Commits.Count</p></td>
-                    <td><p>@Model.Commits.Count</p></td>
+                    <td><p>@Model.Commits.Where(c => !c.Commit.Message.Contains("Merge pull request #")).Count()</p></td>
+                    <td><p>@Model.Commits.Where(c => c.Commit.Message.Contains("Merge pull request #")).Count()</p></td>
                    
                 </tr>
         </tbody>
     </table>
 
 
-<h1>Recent Commits</h1>
+<h1>Commits</h1>
 <table>
         <thead>
             <tr>
@@ -38,7 +36,7 @@
             </tr>
         </thead>
         <tbody>
-             @foreach (var commit in Model.Commits)
+             @foreach (var commit in Model.Commits.Where(c => !c.Commit.Message.Contains("Merge pull request #")))
             {
                 <tr>
                     <td><p>@commit.Commit.Author.Name</p></td>
@@ -59,7 +57,7 @@
             </tr>
         </thead>
         <tbody>
-             @foreach (var commit in Model.Commits)
+             @foreach (var commit in Model.Commits.Where(c => c.Commit.Message.Contains("Merge pull request #")))
             {
                 <tr>
                     <td><p>@commit.Commit.Author.Name</p></td>
