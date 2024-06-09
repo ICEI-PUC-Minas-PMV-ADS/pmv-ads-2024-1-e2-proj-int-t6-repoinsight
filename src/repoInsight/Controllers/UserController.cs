@@ -2,6 +2,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using repoInsight.Models;
 using repoInsight.Data;
+using repoInsight.Services;
 
 namespace repoInsight.Controllers;
 
@@ -36,6 +37,7 @@ public class UserController : Controller
     [ValidateAntiForgeryToken]
     public IActionResult Insert(Usuario user)
     {
+        user.Senha = user.ToPassword();
         _context.Add(user);
         _context.SaveChanges();
         return RedirectToAction("Index", "Home");
@@ -46,7 +48,7 @@ public class UserController : Controller
     public IActionResult Validate(Usuario user)
     {
         var login = _context.Usuario.FirstOrDefault(u => u.Email == user.Email);
-        if(login != null && login.Senha == user.Senha){
+        if(login != null && login.VerifyPassword(user.Senha)){
             HttpContext.Session.SetString("email", login.Email);
             HttpContext.Session.SetString("nome", login.Nome);
             login.UltimoAcesso = DateTime.Now;
@@ -56,6 +58,28 @@ public class UserController : Controller
 
         ViewBag.UserNotFound = "Email ou Senha incorreto!";
         return View("Login");
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult UpdatePassword(string password)
+    {
+        if (string.IsNullOrEmpty(password))
+        {
+            // Handle empty password
+            return BadRequest("Password cannot be empty");
+        }
+
+        var user = _context.Usuario.FirstOrDefault(u => u.Email == HttpContext.Session.GetString("email"));
+        if (user is null)
+        {
+            TempData["UpdatePassword"] = "Error";
+        }
+        user.Senha = user.ToPassword(password);
+        _context.SaveChanges();
+        TempData["UpdatePassword"] = "Success";
+        return RedirectToAction("Index", "Home");
+
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
