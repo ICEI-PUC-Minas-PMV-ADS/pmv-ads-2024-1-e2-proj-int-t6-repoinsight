@@ -1,8 +1,9 @@
-@model repoInsight.Services.RepoCommitsViewModel
-
 @{
     ViewData["Title"] = "GitHub Repository Details";
+    var url = Url.Action("Repo", "GitHub");
 }
+@using System.Text.RegularExpressions;
+@model repoInsight.Services.RepoCommitsViewModel
 
 @section Header{
     <header>
@@ -17,13 +18,31 @@
                         </div>
                     </div>
                     <!-- Campo de busca -->
-                    <div class="flex items-center justify-end md:w-auto px-4 md:px-0 md:mx-4">
+                    <div class="relative flex items-center justify-end md:w-auto px-4 md:px-0 md:mx-4">
+                        <!-- Search input -->
+                        <input type="text" id="searchInput" placeholder="Search" class="w-full md:w-auto bg-gray-700 p-2 rounded-l text-white focus:outline-none">
+                        <!-- Search results -->
+                        <div id="searchResults" class="absolute bg-gray-700 rounded mt-1 w-full border border-gray-300 hidden">
+                            <!-- Search results will be displayed here -->
+                        </div>
+                        <!-- Search button -->
+                        <button id="searchButton" class="bg-gray-700 p-2 rounded-r h-10 hover:bg-gray-600">
+                            <span class="material-icons text-white">search</span>
+                        </button>
+                    </div>
+
+                    <!-- Container to display search results -->
+                    <div id="searchResults" class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                        <!-- Search results will be displayed here -->
+                    </div>
+                    @* <div class="flex items-center justify-end md:w-auto px-4 md:px-0 md:mx-4">
                         <input type="text" placeholder="Search" class="w-full md:w-auto bg-gray-700 p-2 rounded text-white mx-2">
                         <button class="bg-gray-700 p-2 rounded hover:bg-gray-600">
                             <span class="material-icons text-white">search</span>
                         </button>
-                    </div>
+                    </div> *@
                     <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+
                         <!-- Profile dropdown -->
                         <div class="relative ml-3">
                             <div>
@@ -36,7 +55,7 @@
 
                             <!-- Dropdown menu, initially hidden -->
                             <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Conta</a>
+                                <a href="#" onclick="contaModal()" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Conta</a>
                                 <a asp-controller="User" asp-action="Logout" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Sair</a>
                             </div>
                         </div>
@@ -52,7 +71,14 @@
         <span class="font-bold">Repositorio: @Model.Repository.Name</span>
     </div>
     <div>
-        <span class="font-bold">Descrição: @Model.Repository.Description</span>
+        <form>
+            <button
+                class="select-none rounded-lg border border-red-700 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-red-700 transition-all hover:opacity-75 focus:ring text-white bg-red-700 focus:ring-gray-300 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                type="button"
+            >
+                @Html.ActionLink("Excluir Repositorio", "Delete", "GitHub", new {owner = Model.Repository.FullName.Split("/")[0], repo=Model.Repository.FullName.Split("/")[1]})
+            </button>
+        </form>
     </div>
     <div class="col-span-2">
         <div class="grid grid-cols-7 gap-4">
@@ -68,11 +94,11 @@
         
         <div class="py-4 border border-dashed rounded-lg border-slate-400 text-center">
             <h6 class="font-bold dark:text-black">T. Commits</h6>
-            <h4 class="font-bold dark:text-black">@Model.Commits.Count</h4>
+            <h4 class="font-bold dark:text-black">@Model.Commits.Where(c => !Regex.Match(c.Commit.Message, @"\#\d{1,}").Success).ToList().Count</h4>
         </div>
         
         <div class="py-4 border border-dashed rounded-lg border-slate-400 text-center">
-            <h6 class="font-bold dark:text-black">T. Contribuites</h6>
+            <h6 class="font-bold dark:text-black">T. Contribuintes</h6>
             <h4 class="font-bold dark:text-black">@Model.Contributors</h4>
         </div>
 
@@ -116,7 +142,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody class="divide-y divide-gray-200 dark:divide-neutral-700">
-                                                @foreach (var commit in Model.Commits.Where(c => !c.Commit.Message.Contains("Merge pull request #")))
+                                                @foreach (var commit in Model.Commits.Where(c => !Regex.Match(c.Commit.Message, @"\#\d{1,}").Success))
                                                 {
                                                     <tr>
                                                         <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">@commit.Commit.Author.Name</td>
@@ -149,7 +175,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody class="divide-y divide-gray-200 dark:divide-neutral-700">
-                                                @foreach (var commit in Model.Commits.Where(c => c.Commit.Message.Contains("Merge pull request #")))
+                                                @foreach (var commit in Model.Commits.Where(c => Regex.Match(c.Commit.Message, @"\#\d{1,}").Success))
                                                 {
                                                     <tr>
                                                         <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">@commit.Commit.Author.Name</td>
@@ -170,3 +196,56 @@
         </div>
     </div>
 </div>
+<script>  
+    function redirectToRepo(fullName){
+        const [owner, repo,] = fullName.split("/");
+        window.location.href = "@url?owner="+encodeURIComponent(owner)+"&repo="+encodeURIComponent(repo), "_blank";
+    }
+    // Function to filter values based on search input
+    function filterValues(searchText) {
+        const values = JSON.parse(localStorage.getItem("values"));
+        return values.filter(value => value.toLowerCase().includes(searchText.toLowerCase()));
+    }
+
+    // Function to update search results
+    function updateSearchResults(searchText) {
+        const searchResultsElement = document.getElementById("searchResults");
+        const filteredValues = filterValues(searchText);
+
+        // Clear previous search results
+        searchResultsElement.innerHTML = "";
+
+        // Display filtered values
+        filteredValues.forEach(value => {
+            const listItem = document.createElement("div");
+            listItem.className = "cursor-pointer bg-gray-700 text-white";
+            listItem.setAttribute("onclick", `redirectToRepo('${value}')`);
+            listItem.textContent = value;
+            searchResultsElement.appendChild(listItem);
+        });
+
+        // Show search results if there are matches, hide otherwise
+        searchResultsElement.style.display = filteredValues.length ? "block" : "none";
+    }
+
+    // Event listener for input event on search input field
+    document.getElementById("searchInput").addEventListener("input", function(event) {
+        updateSearchResults(event.target.value);
+    });
+
+    document.body.addEventListener("click", function(event) {
+        const searchInput = document.getElementById("searchInput");
+        const searchResults = document.getElementById("searchResults");
+
+        // Check if the click target is outside the search input and its results container
+        if (!searchInput.contains(event.target) && !searchResults.contains(event.target)) {
+            // Hide search results
+            searchResults.style.display = "none";
+        }
+    });
+</script>
+<style>
+    #searchResults {
+        top: calc(100% + 5px); /* Position below search input */
+    }
+</style>

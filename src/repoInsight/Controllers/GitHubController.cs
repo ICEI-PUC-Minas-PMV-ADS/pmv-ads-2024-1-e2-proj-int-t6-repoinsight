@@ -16,12 +16,6 @@ namespace repoInsight.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
-        {
-            ViewData["Title"] = "GitHub";
-            return View();
-        }
-
         [HttpGet]
         public async Task<IActionResult> Repo(string owner, string repo)
         {
@@ -39,6 +33,26 @@ namespace repoInsight.Controllers
             _context.SaveChanges();
 
             return View(response);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(string owner, string repo)
+        {
+            _logger.LogInformation(repo);
+            _logger.LogInformation(owner);
+            var repositorio = _context.Repo.FirstOrDefault(r => r.Nome == owner+"/"+repo);
+            _logger.LogInformation(repositorio.ToString());
+            if(repositorio is null)
+            {
+                TempData["RepoDeleted"] = "Error";
+                return RedirectToAction("Index", "Home");
+            }
+            _context.Repo.Remove(repositorio);
+            _context.SaveChanges();
+
+            TempData["RepoDeleted"] = "Success";
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }

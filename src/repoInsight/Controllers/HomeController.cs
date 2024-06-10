@@ -24,9 +24,7 @@ public class HomeController : Controller
         if(HttpContext.Session.GetString("email").IsNullOrEmpty()){
             return RedirectToAction("Login", "User");
         }
-        var repos = from r in _context.Repo join u in _context.Usuario on r.IdUsuario equals u.Id where u.Email == HttpContext.Session.GetString("email") select r;
-        var ultimos = repos.OrderByDescending(r => r.DataVisita).Take(3).Select(r => r).ToList();
-        var tuple = new Tuple<List<Repo>, Repo, List<Repo>>(repos.ToList(), new Repo(), ultimos);
+        var repos = RepoService.ListRepos(_context, HttpContext.Session.GetString("email"));
 
         if (TempData["UpdatePassword"] != null)
         {
@@ -39,7 +37,18 @@ public class HomeController : Controller
             }
         }
 
-        return View(tuple);
+        if (TempData["RepoDeleted"] != null)
+        {
+            if (TempData["UpdatePassword"] == "Error")
+            {
+                ViewBag.ErrorMessage = "Erro ao deletar o repositório!";
+            } else
+            {
+                ViewBag.SuccessMessage = "Repositório deletado com sucesso!";
+            }
+        }
+
+        return View(repos.ToTuple());
         
     }
 
@@ -60,10 +69,8 @@ public class HomeController : Controller
             _context.SaveChanges();
             ViewBag.SuccessMessage = "Sucesso!";
         }
-        var repos = from r in _context.Repo join u in _context.Usuario on r.IdUsuario equals u.Id where u.Email == HttpContext.Session.GetString("email") select r;
-        var ultimos = repos.OrderByDescending(r => r.DataVisita).Take(3).Select(r => r).ToList();
-        var tuple = new Tuple<List<Repo>, Repo, List<Repo>>(repos.ToList(), new Repo(), ultimos);
-        return View("Index", tuple);
+        var repos = RepoService.ListRepos(_context, HttpContext.Session.GetString("email"));
+        return View("Index", repos.ToTuple());
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -1,5 +1,6 @@
 using Newtonsoft.Json;
 using repoInsight.Models;
+using System.Text.RegularExpressions;
 
 namespace repoInsight.Services;
 
@@ -7,6 +8,11 @@ public static class GitHub
 {
     public static async Task<RepoCommitsViewModel?> GetRepo(string nome)
     {
+        JsonSerializerSettings settings = new JsonSerializerSettings
+        {
+            Error = null
+        };
+
         string[] repoParts = nome.Split("/");
         (string owner, string repo) = (repoParts[0], repoParts[1]);
 
@@ -24,22 +30,23 @@ public static class GitHub
         var pullsResponse = await client.GetAsync(pullsApiUrl);
         var branchesResponse = await client.GetAsync(branchesApiUrl);
 
-        string pullsData = await pullsResponse.Content.ReadAsStringAsync();
-        var pullsDetails = JsonConvert.DeserializeObject<List<GithubPulls>>(pullsData);
 
-        string branchesData = await branchesResponse.Content.ReadAsStringAsync();
-        var branchesDetails = JsonConvert.DeserializeObject<List<GithubBranches>>(branchesData);
-
-        string contributorsData = await contributorsResponse.Content.ReadAsStringAsync();
-        var contributorsDetails = JsonConvert.DeserializeObject<List<GithubContributors>>(contributorsData);
-
-        if (repoResponse.IsSuccessStatusCode && commitsResponse.IsSuccessStatusCode)
+        if (repoResponse.IsSuccessStatusCode && commitsResponse.IsSuccessStatusCode && contributorsResponse.IsSuccessStatusCode && pullsResponse.IsSuccessStatusCode && branchesResponse.IsSuccessStatusCode)
         {
+            string pullsData = await pullsResponse.Content.ReadAsStringAsync();
+            var pullsDetails = JsonConvert.DeserializeObject<List<GithubPulls>>(pullsData, settings);
+
+            string branchesData = await branchesResponse.Content.ReadAsStringAsync();
+            var branchesDetails = JsonConvert.DeserializeObject<List<GithubBranches>>(branchesData, settings);
+
+            string contributorsData = await contributorsResponse.Content.ReadAsStringAsync();
+            var contributorsDetails = JsonConvert.DeserializeObject<List<GithubContributors>>(contributorsData, settings);
+
             string repoData = await repoResponse.Content.ReadAsStringAsync();
-            GithubRepository repoDetails = JsonConvert.DeserializeObject<GithubRepository>(repoData);
+            GithubRepository repoDetails = JsonConvert.DeserializeObject<GithubRepository>(repoData, settings);
 
             string commitsData = await commitsResponse.Content.ReadAsStringAsync();
-            List<GitCommit> commitDetails = JsonConvert.DeserializeObject<List<GitCommit>>(commitsData);
+            List<GitCommit> commitDetails = JsonConvert.DeserializeObject<List<GitCommit>>(commitsData, settings);
 
             return new RepoCommitsViewModel
             {
@@ -48,7 +55,7 @@ public static class GitHub
                 Pulls = pullsDetails.Count,
                 Branches = branchesDetails.Count,
                 Contributors = contributorsDetails.Count,
-                Merges = commitDetails.Where(c => !c.Commit.Message.Contains("Merge pull request #")).ToList().Count
+                Merges = commitDetails.Where(c => Regex.Match(c.Commit.Message, @"\#\d{1,}").Success).ToList().Count
             };
         }
         return null;
