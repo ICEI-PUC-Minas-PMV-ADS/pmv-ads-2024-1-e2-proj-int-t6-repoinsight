@@ -24,10 +24,31 @@ public class HomeController : Controller
         if(HttpContext.Session.GetString("email").IsNullOrEmpty()){
             return RedirectToAction("Login", "User");
         }
-        var repos = from r in _context.Repo join u in _context.Usuario on r.IdUsuario equals u.Id select r;
-        var ultimos = repos.OrderByDescending(r => r.DataVisita).Take(3).Select(r => r).ToList();
-        var tuple = new Tuple<List<Repo>, Repo, List<Repo>>(repos.ToList(), new Repo(), ultimos);
-        return View(tuple);
+        var repos = RepoService.ListRepos(_context, HttpContext.Session.GetString("email"));
+
+        if (TempData["UpdatePassword"] != null)
+        {
+            if (TempData["UpdatePassword"] == "Error")
+            {
+                ViewBag.ErrorMessage = "Erro ao encontrar o usuário!";
+            } else
+            {
+                ViewBag.SuccessMessage = "Senha atualizada com sucesso!";
+            }
+        }
+
+        if (TempData["RepoDeleted"] != null)
+        {
+            if (TempData["UpdatePassword"] == "Error")
+            {
+                ViewBag.ErrorMessage = "Erro ao deletar o repositório!";
+            } else
+            {
+                ViewBag.SuccessMessage = "Repositório deletado com sucesso!";
+            }
+        }
+
+        return View(repos.ToTuple());
         
     }
 
@@ -39,19 +60,17 @@ public class HomeController : Controller
         var response = GitHub.GetRepo(nome);
         if (response is null)
         {
-            ViewBag.RepoNotFound = "Erro!";
+            ViewBag.ErrorMessage = "Erro!";
         }
         else
         {
-            var userId =(int) (from u in _context.Usuario select u.Id).Single();
+            var userId =(int) (from u in _context.Usuario where u.Email == HttpContext.Session.GetString("email") select u.Id).Single();
             _context.Add(new Repo(){Nome = nome, Descricao = response.Result?.Repository?.Description, IdUsuario = userId});
             _context.SaveChanges();
-            ViewBag.RepoNotFound = "Sucesso!";
+            ViewBag.SuccessMessage = "Sucesso!";
         }
-        var repos = from r in _context.Repo join u in _context.Usuario on r.IdUsuario equals u.Id select r;
-        var ultimos = repos.OrderByDescending(r => r.DataVisita).Take(3).Select(r => r).ToList();
-        var tuple = new Tuple<List<Repo>, Repo, List<Repo>>(repos.ToList(), new Repo(), ultimos);
-        return View("Index", tuple);
+        var repos = RepoService.ListRepos(_context, HttpContext.Session.GetString("email"));
+        return View("Index", repos.ToTuple());
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

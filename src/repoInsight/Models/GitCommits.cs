@@ -1,6 +1,6 @@
 using System;
-using System.Collections.Generic;
 using Newtonsoft.Json;
+
 namespace repoInsight.Models
 {
     public class GitCommit
@@ -19,6 +19,9 @@ namespace repoInsight.Models
 
         public class CommitDetails
         {
+            [JsonProperty("url")]
+            public string URL { get; set; }
+            
             [JsonProperty("author")]
             public CommitAuthor Author { get; set; }
 
@@ -27,6 +30,21 @@ namespace repoInsight.Models
 
             [JsonProperty("message")]
             public string Message { get; set; }
+
+            // Propriedade para a URL modificada
+            public string GitHubURL
+            {
+                get
+                {
+                    if (string.IsNullOrEmpty(URL))
+                    {
+                        return URL;
+                    }
+
+                    return URL.Replace("api.github.com/repos", "github.com")
+                              .Replace("/git/commits", "/commit");
+                }
+            }
         }
 
         public class CommitAuthor

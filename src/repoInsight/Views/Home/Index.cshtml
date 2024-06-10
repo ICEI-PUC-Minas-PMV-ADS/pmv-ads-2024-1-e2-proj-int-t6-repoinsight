@@ -2,6 +2,7 @@
     ViewData["Title"] = "Home Page";
     var url = Url.Action("Repo", "GitHub");
 }
+@using Newtonsoft.Json;
 @model Tuple<List<Repo>, Repo, List<Repo>>;
 
 @section Header{
@@ -12,17 +13,39 @@
                     <div class="flex flex-1 items-stretch justify-start">
                         <div class="flex flex-shrink-0 items-center">
                             <a asp-controller="Home" asp-action="Index">
-                                <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="200" height="50">
+                                    <text x="10" y="40" font-family="Arial" font-size="30" fill="white" opacity="0">
+                                        <animate attributeName="opacity" from="0" to="1" dur="1s" begin="0s" fill="freeze" />
+                                        RepoInsight
+                                    </text>
+                                </svg>
                             </a>
                         </div>
                     </div>
                     <!-- Campo de busca -->
-                    <div class="flex items-center justify-end md:w-auto px-4 md:px-0 md:mx-4">
+                    <div class="relative flex items-center justify-end md:w-auto px-4 md:px-0 md:mx-4">
+                        <!-- Search input -->
+                        <input type="text" id="searchInput" placeholder="Search" class="w-full md:w-auto bg-gray-700 p-2 rounded-l text-white focus:outline-none">
+                        <!-- Search results -->
+                        <div id="searchResults" class="absolute bg-gray-700 rounded mt-1 w-full border border-gray-300 hidden">
+                            <!-- Search results will be displayed here -->
+                        </div>
+                        <!-- Search button -->
+                        <button id="searchButton" class="bg-gray-700 p-2 rounded-r h-10 hover:bg-gray-600">
+                            <span class="material-icons text-white">search</span>
+                        </button>
+                    </div>
+
+                    <!-- Container to display search results -->
+                    <div id="searchResults" class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                        <!-- Search results will be displayed here -->
+                    </div>
+                    @* <div class="flex items-center justify-end md:w-auto px-4 md:px-0 md:mx-4">
                         <input type="text" placeholder="Search" class="w-full md:w-auto bg-gray-700 p-2 rounded text-white mx-2">
                         <button class="bg-gray-700 p-2 rounded hover:bg-gray-600">
                             <span class="material-icons text-white">search</span>
                         </button>
-                    </div>
+                    </div> *@
                     <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
 
                         <!-- Profile dropdown -->
@@ -31,7 +54,7 @@
                                 <button type="button" class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                                     <span class="absolute -inset-1.5"></span>
                                     <span class="sr-only">Open user menu</span>
-                                    <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                                    <img class="h-8 w-8 rounded-full" src="~/img/user.png" alt="User Icon">
                                 </button>
                             </div>
 
@@ -52,69 +75,34 @@
     <div class="flex flex-col md:flex-row">
         <div id="warning" class="absolute top-0 right-0 bg-red-500 shadow-lg shadow-red-900 border-2 border-red-600 rounded mt-4 mr-2 p-3 transition-opacity duration-500 ease-in opacity-100 hidden">
             <p>
-            @ViewBag.RepoNotFound
+            @ViewBag.ErrorMessage
             </p>
         </div>
         <div id="success" class="absolute top-0 right-0 bg-green-500 shadow-lg shadow-green-900 border-2 border-green-600 rounded mt-4 mr-2 p-3 transition-opacity duration-500 ease-in opacity-100 hidden">
             <p>
-            @ViewBag.RepoNotFound
+            @ViewBag.SuccessMessage
             </p>
         </div>
         <!-- Sidebar -->
-        <div class="relative h-40 bg-gray-800 p-4 rounded text-white mt-2 w-full md:w-1/4 md:h-screen overflow-y-auto">
+        <div class="relative h-40 p-4 rounded text-white mt-2 w-full md:w-1/4 md:h-[800px] overflow-y-auto bg-white shadow-2xl rounded-2xl p-5">
             <div class="flex items-center mb-4">
                 <div class="flex">
-                    <span class="material-icons">folder</span>
-                    <h2 class="text-lg font-bold mb-4 mx-2">Projetos - @Context.Session.GetString("email")</h2>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" class="size-6">
+                        <path d="M19.5 21a3 3 0 0 0 3-3v-4.5a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3V18a3 3 0 0 0 3 3h15ZM1.5 10.146V6a3 3 0 0 1 3-3h5.379a2.25 2.25 0 0 1 1.59.659l2.122 2.121c.14.141.331.22.53.22H19.5a3 3 0 0 1 3 3v1.146A4.483 4.483 0 0 0 19.5 9h-15a4.483 4.483 0 0 0-3 1.146Z" />
+                    </svg>
+                    <h2 class="text-lg text-gray-800 font-bold mb-4 mx-2">Projetos de @Context.Session.GetString("nome")</h2>
                 </div>
             </div>
-            
-            <div class="pl-4 flex items-center cursor-pointer folder-title my-2" onclick="toggleFolder(this)">
-                <span class="arrow-icon material-icons hover:text-blue-500">arrow_circle_right</span>
-                Insight Project
-            </div>
-            <ul class="pl-4 hidden">
-                <li class="bg-white text-black border border-blue-500 rounded-md px-3 py-2 my-2 cursor-pointer flex items-center">
-                    <span class="material-icons">description</span>
-                    PROJETO-T6-GITSOR
-                </li>
-                <li class="bg-white text-black border border-blue-500 rounded-md px-3 py-2 my-2 cursor-pointer flex items-center">
-                    <span class="material-icons">description</span>
-                    PROJETO-T6-GITSOR
-                </li>
-            </ul>
-
-            <div class="pl-4 flex items-center cursor-pointer folder-title my-2" onclick="toggleFolder(this)">
-                <span class="arrow-icon material-icons hover:text-blue-500">arrow_circle_right</span>
-                2024
-            </div>
-            <ul class="pl-4 hidden">
+            <ul class="pl-4">
                 @foreach (var repo in Model.Item1){
                     <li class="bg-white text-black border border-blue-500 rounded-md px-3 py-2 my-2 cursor-pointer flex items-center">
-                        <span class="material-icons">description</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                            <path fill-rule="evenodd" d="M3 6a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6Zm14.25 6a.75.75 0 0 1-.22.53l-2.25 2.25a.75.75 0 1 1-1.06-1.06L15.44 12l-1.72-1.72a.75.75 0 1 1 1.06-1.06l2.25 2.25c.141.14.22.331.22.53Zm-10.28-.53a.75.75 0 0 0 0 1.06l2.25 2.25a.75.75 0 1 0 1.06-1.06L8.56 12l1.72-1.72a.75.75 0 1 0-1.06-1.06l-2.25 2.25Z" clip-rule="evenodd" />
+                        </svg>
                         @Html.ActionLink(@repo.Nome, "Repo", "GitHub", new {owner = repo.Nome.Split("/")[0], repo=repo.Nome.Split("/")[1]})
                     </li>
                 }
             </ul>
-            @* <div class="relative inset-x-0 bottom-0 h-16 flex justify-center">
-                <div class="flex relative inset-x-0 bottom-0 h-16 ">
-                    <abbr title="Ordenar por Ordem Alfabética"  class="no-underline">
-                        <button class="flex items-center  p-2 rounded">
-                            <span class="material-icons text-white hover:text-blue-700">sort_by_alpha</span>
-                        </button>
-                    </abbr>
-                    <abbr title="Filtrar por Watch" class="no-underline">
-                        <button class="flex items-center p-2 rounded ">
-                            <span class="material-icons text-white hover:text-gray-700">visibility</span>
-                        </button>
-                    </abbr>
-                    <abbr title="Filtrar por Stars" class="no-underline">
-                        <button class="flex items-center p-2 rounded">
-                            <span class="material-icons text-white hover:text-yellow-400">star</span>
-                        </button>
-                    </abbr>
-                </div>
-            </div> *@
         </div>
 
 
@@ -132,65 +120,39 @@
              </div> 
 
             <!-- Recent Changes -->
-            <div class="mb-4">
-                <h2 class="text-lg font-bold mb-2 text-white">Mudanças Recentes</h2>
-                <div class="bg-gray-800 p-4 rounded">
-                    <div class="flex items-center text-white">
-                        <span>PUCMinas/PROJETO-T6-GITSOR (PR ícone)</span>
-                        <div class="cursor-pointer ml-2 flex items-center">
-                            <span class="material-icons hover:text-blue-500">add_circle</span>
-                        </div>
-                    </div>
-                    <div class="flex items-center text-white mt-2">
-                        <span>GOOGLE/CHROMEDRIVER (PR ícone) (Commit ícone)</span>
-                        <div class="cursor-pointer ml-2 flex items-center">
-                            <span class="material-icons hover:text-blue-500">add_circle</span>
-                        </div>
+            <div class="grid grid-cols-3 gap-4">
+                <div class="col-span-3">
+                    <div class="container bg-white shadow-2xl rounded-2xl p-5">
+                        <h2 class="text-lg text-gray-800 font-bold mb-2">O que é o RepoInsight?</h2>
+                            O sistema RepoInsight é uma interface aprimorada do GitHub, desenvolvida para facilitar o acompanhamento e a visualização das contribuições dos alunos em projetos de programação. Projetado com foco em professores e educadores, o RepoInsight oferece uma análise detalhada e intuitiva das atividades dos estudantes, permitindo um monitoramento mais eficiente e preciso do progresso individual e coletivo. Com recursos que destacam commits, pull requests, revisões de código e outras métricas relevantes, o RepoInsight transforma dados complexos em insights claros e úteis, apoiando a avaliação e a gestão de projetos educacionais na plataforma GitHub
                     </div>
                 </div>
-            </div>
-            <!-- Last Visited -->
-            <div>
-                <h2 class="text-lg font-bold mb-2">Últimos Visitados</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    @foreach (var repo in Model.Item3){
-                        <div ondblclick="redirectToRepo('@repo.Nome')" class="text-white bg-gray-800 h-40 rounded cursor-pointer">
-                            <h3>@repo.Nome</h3>
-                            <br>
-                            <p>@repo.Descricao</p>
-                        </div>
-                    }
+                <div class="col-span-3">
+                    <h2 class="text-lg font-bold mb-2">Últimos Visitados</h2>
                 </div>
+
+                @foreach (var repo in Model.Item3){
+                    <article class="grid grid-cols-3 gap-4 bg-white shadow-2xl rounded-2xl p-5">
+                            <h1 class="font-bold text-gray-800 col-span-3">@repo.Nome</h1>
+                            <p class="font-light text-gray-500 hover:font-bold col-span-4">@repo.Descricao</p>
+                            <h6 class="text-sm text-gray-300 mb-5 col-span-4">@repo.DataVisita</h6>
+                            <a onclick="redirectToRepo('@repo.Nome')"class="rounded-lg py-2 px-4 text-center text-white bg-gray-800 hover:cursor-pointer hover:bg-gray-500 col-span-3">Repositorio</a>
+                    </article>
+                }
+
             </div>
         </div>
     </div>
     <div id="repo-modal" class="relative z-10 hidden" aria-labelledby="repo-modal" role="dialog" aria-modal="true">
-        <!--
-        Background backdrop, show/hide based on modal state.
 
-        Entering: "ease-out duration-300"
-        From: "opacity-0"
-        To: "opacity-100"
-        Leaving: "ease-in duration-200"
-        From: "opacity-100"
-        To: "opacity-0"
-        -->
         <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
 
         <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
             <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-                <!--
-            Modal panel, show/hide based on modal state.
-
-            Entering: "ease-out duration-300"
-            From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-            To: "opacity-100 translate-y-0 sm:scale-100"
-            Leaving: "ease-in duration-200"
-            From: "opacity-100 translate-y-0 sm:scale-100"
-            To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-        -->
+               
                 <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all pt-4 sm:my-8 sm:w-full sm:max-w-lg">
                     <form asp-action="AddRepo" method="post">
+                        @Html.AntiForgeryToken()
                         <div class="bg-white flex justify-center px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                             <div>
                                 <input asp-for="@Model.Item2.Nome" class="border-2 border-blue-400 rounded w-96 p-2" type="text" pattern="[\w\-]{1,}\/[\w\-]{1,}" title="Ensira no padrao org/repo" placeholder="organizacao/nome-repositorio" required>
@@ -208,36 +170,19 @@
         </div>
     </div>
     <div id="conta-modal" class="relative z-10 hidden" aria-labelledby="conta-modal" role="dialog" aria-modal="true">
-        <!--
-        Background backdrop, show/hide based on modal state.
-
-        Entering: "ease-out duration-300"
-        From: "opacity-0"
-        To: "opacity-100"
-        Leaving: "ease-in duration-200"
-        From: "opacity-100"
-        To: "opacity-0"
-        -->
+        
         <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
 
         <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
             <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-                <!--
-            Modal panel, show/hide based on modal state.
 
-            Entering: "ease-out duration-300"
-            From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-            To: "opacity-100 translate-y-0 sm:scale-100"
-            Leaving: "ease-in duration-200"
-            From: "opacity-100 translate-y-0 sm:scale-100"
-            To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-        -->
                 <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all pt-4 sm:my-8 sm:w-full sm:max-w-lg">
-                    <h3>Redefinir Senha</h3>
-                    <form asp-action="AddRepo" method="post">
+                    <form asp-controller="User" asp-action="UpdatePassword" method="post">
+                         @Html.AntiForgeryToken()
+                        <label for="password" class="flex justify-center">Redefinir Senha</label>
                         <div class="bg-white flex justify-center px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                             <div>
-                                <input asp-for="@Model.Item2.Nome" class="border-2 border-blue-400 rounded w-96 p-2" type="password" pattern="\w{8,}" placeholder="Nova senha" required>
+                                <input name="password" class="border-2 border-blue-400 rounded w-96 p-2" type="password" pattern="\w{8,}" placeholder="Nova senha" required>
                             </div>
                         </div>
                         <div class="bg-gray-50 px-4 py-3 pb-6 sm:flex sm:flex-row-reverse sm:px-6">
@@ -277,10 +222,62 @@
 
     function redirectToRepo(fullName){
         const [owner, repo,] = fullName.split("/");
-        window.open("@url?owner="+encodeURIComponent(owner)+"&repo="+encodeURIComponent(repo), "_blank");
+        window.location.href = "@url?owner="+encodeURIComponent(owner)+"&repo="+encodeURIComponent(repo), "_blank";
     }
+
+    const values = @Html.Raw(JsonConvert.SerializeObject(Model.Item1.Select(r => r.Nome)));
+    localStorage.setItem("values", JSON.stringify(values));
+    
+
+    // Function to filter values based on search input
+    function filterValues(searchText) {
+        const values = JSON.parse(localStorage.getItem("values"));
+        return values.filter(value => value.toLowerCase().includes(searchText.toLowerCase()));
+    }
+
+    // Function to update search results
+    function updateSearchResults(searchText) {
+        const searchResultsElement = document.getElementById("searchResults");
+        const filteredValues = filterValues(searchText);
+
+        // Clear previous search results
+        searchResultsElement.innerHTML = "";
+
+        // Display filtered values
+        filteredValues.forEach(value => {
+            const listItem = document.createElement("div");
+            listItem.className = "cursor-pointer bg-gray-700 text-white";
+            listItem.setAttribute("onclick", `redirectToRepo('${value}')`);
+            listItem.textContent = value;
+            searchResultsElement.appendChild(listItem);
+        });
+
+        // Show search results if there are matches, hide otherwise
+        searchResultsElement.style.display = filteredValues.length ? "block" : "none";
+    }
+
+    // Event listener for input event on search input field
+    document.getElementById("searchInput").addEventListener("input", function(event) {
+        updateSearchResults(event.target.value);
+    });
+
+    document.body.addEventListener("click", function(event) {
+        const searchInput = document.getElementById("searchInput");
+        const searchResults = document.getElementById("searchResults");
+
+        // Check if the click target is outside the search input and its results container
+        if (!searchInput.contains(event.target) && !searchResults.contains(event.target)) {
+            // Hide search results
+            searchResults.style.display = "none";
+        }
+    });
 </script>
-@if (ViewBag.RepoNotFound != null && ViewBag.RepoNotFound == "Erro!")
+<style>
+    #searchResults {
+        top: calc(100% + 5px); /* Position below search input */
+    }
+</style>
+@if (ViewBag.ErrorMessage != null)
 {
 <script>
     const warning = document.getElementById("warning");
@@ -293,7 +290,7 @@
     }, 2000)
 </script>
 }
-@if (ViewBag.RepoNotFound != null && ViewBag.RepoNotFound == "Sucesso!")
+@if (ViewBag.SuccessMessage != null)
 {
 <script>
     const success = document.getElementById("success");
