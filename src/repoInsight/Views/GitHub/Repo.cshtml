@@ -13,7 +13,12 @@
                     <div class="flex flex-1 items-stretch justify-start">
                         <div class="flex flex-shrink-0 items-center">
                             <a asp-controller="Home" asp-action="Index">
-                                <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="200" height="50">
+                                    <text x="10" y="40" font-family="Arial" font-size="30" fill="white" opacity="0">
+                                        <animate attributeName="opacity" from="0" to="1" dur="1s" begin="0s" fill="freeze" />
+                                        RepoInsight
+                                    </text>
+                                </svg>
                             </a>
                         </div>
                     </div>
