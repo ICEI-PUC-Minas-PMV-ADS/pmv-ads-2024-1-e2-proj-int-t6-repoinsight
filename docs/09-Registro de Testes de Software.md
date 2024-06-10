@@ -4,19 +4,24 @@
 
 Para cada caso de teste definido no Plano de Testes de Software, realize o registro das evidências dos testes feitos na aplicação pela equipe, que comprovem que o critério de êxito foi alcançado (ou não!!!). Para isso, utilize uma ferramenta de captura de tela que mostre cada um dos casos de teste definidos (obs.: cada caso de teste deverá possuir um vídeo do tipo _screencast_ para caracterizar uma evidência do referido caso).
 
-| **Caso de Teste** 	| **CT-01 – Cadastrar perfil** 	|
+| **Caso de Teste** 	| **CT-01 - Sign Up e Sign In** 	|
 |:---:	|:---:	|
-|	Requisito Associado 	| RF-00X - A aplicação deve apresentar, na página principal, a funcionalidade de cadastro de usuários para que esses consigam criar e gerenciar seu perfil. |
-|Registro de evidência | www.teste.com.br/drive/ct-01 |
+| Resultados obtidos | Preenchido corretamente todos os campos do formulário no teste. |
+| Responsável pela execução do caso de Teste | Thiago Luiz |
 
-| **Caso de Teste** 	| **CT-02 – Realizar login** 	|
+|Registro de evidência | ![Alt text](img/Tela%20login%20sem%20cadastro.png) |
+|Registro de evidência | ![Alt text](img/Tela%20de%20registro%20de%20login.png) |
+
+| **Caso de Teste** 	| **CT-02 – Gestor de Repositórios - Adicionar Repositório** 	|
 |:---:	|:---:	|
-|	Requisito Associado 	| RF-00Y - A aplicação deve permitir que um usuário previamente cadastrado faça login |
-|Registro de evidência | www.teste.com.br/drive/ct-02 |
+| Resultados obtidos | Adicionado o repositório no devido campo e seu resultado registrado. |
+| Responsável pela execução do caso de Teste | Thiago Luiz |
+|Registro de evidência | ![Alt text](img/Tela%20de%20login%20registrado.png) |
+|Registro de evidência | ![Alt text](img/Tela%20de%20repositorio%20adicionado.png) |
 
-## Avaliação
-
-Discorra sobre os resultados do teste. Ressaltando pontos fortes e fracos identificados na solução. Comente como o grupo pretende atacar esses pontos nas próximas iterações. Apresente as falhas detectadas e as melhorias geradas a partir dos resultados obtidos nos testes.
-
-> **Links Úteis**:
-> - [Ferramentas de Test para Java Script](https://geekflare.com/javascript-unit-testing/)
+| **Caso de Teste** 	| **CT-03 – Tela Repositório - Seleção de Modo de Visualização** 	|
+|:---:	|:---:	|
+| Resultados obtidos | Tela atualizada com os registros de commits e PRs do repositório. |
+| Responsável pela execução do caso de Teste | Thiago Luiz |
+|Registro de evidência | ![Alt text](img/Tela%20de%20commits.png) |
+|Registro de evidência | ![Alt text](img/Tela%20de%20PRs.png) |
