@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 using repoInsight.Data;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
@@ -8,8 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+// Configuração do DbContext para usar a string de conexão do appsettings.json
 builder.Services.AddDbContext<RepoInsightContext>(options =>
-    options.UseSqlServer(@"Server=127.0.0.1;Database=repoInsight.Models;user=SA;password=<YourStrong@Passw0rd>;TrustServerCertificate=true;"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("RepoInsightContext")));
 
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
