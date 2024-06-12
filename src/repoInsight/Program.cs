@@ -9,7 +9,7 @@ builder.Services.AddControllersWithViews();
 
 // Configuração do DbContext para usar a string de conexão do appsettings.json
 builder.Services.AddDbContext<RepoInsightContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("RepoInsightContext")));
+    options.UseSqlServer(Environment.GetEnvironmentVariable("ConnectionStrings__RepoInsightContext")));
 
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
