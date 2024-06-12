@@ -37,6 +37,8 @@ public class UserController : Controller
     [ValidateAntiForgeryToken]
     public IActionResult Insert(Usuario user)
     {
+        string valorVariavelAmbiente = Environment.GetEnvironmentVariable("RepoInsightContext");
+        Console.WriteLine("Valor da variável de ambiente: " + valorVariavelAmbiente);
         user.Senha = user.ToPassword();
         _context.Add(user);
         _context.SaveChanges();
