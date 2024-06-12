@@ -38,7 +38,7 @@ public class UserController : Controller
     public IActionResult Insert(Usuario user)
     {
         string valorVariavelAmbiente = Environment.GetEnvironmentVariable("RepoInsightContext");
-        _logger.LogInformation("Valor da variável de ambiente: " + valorVariavelAmbiente);
+        Console.WriteLine("Valor da variável de ambiente: " + valorVariavelAmbiente);
         user.Senha = user.ToPassword();
         _context.Add(user);
         _context.SaveChanges();
