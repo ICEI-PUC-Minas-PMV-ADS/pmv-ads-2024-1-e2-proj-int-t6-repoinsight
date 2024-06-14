@@ -75,16 +75,6 @@
     <div>
         <span class="font-bold">Repositorio: @Model.Repository.Name</span>
     </div>
-    <div>
-        <form>
-            <button
-                class="select-none rounded-lg border border-red-700 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-red-700 transition-all hover:opacity-75 focus:ring text-white bg-red-700 focus:ring-gray-300 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                type="button"
-            >
-                @Html.ActionLink("Excluir Repositorio", "Delete", "GitHub", new {owner = Model.Repository.FullName.Split("/")[0], repo=Model.Repository.FullName.Split("/")[1]})
-            </button>
-        </form>
-    </div>
     <div class="col-span-2">
         <div class="grid grid-cols-7 gap-4">
         <div class="py-4 border border-dashed rounded-lg border-slate-400 text-center">
@@ -126,11 +116,32 @@
     <div class="col-span-2">
         <div x-data="{ openTab: 1 }">
             <div class="col-span-2">
-                <div class="col-span-2 bg-white rounded-lg shadow-md">
-                    <button x-on:click="openTab = 1" :class="{ 'bg-blue-600 text-white': openTab === 1 }" class="flex-1 py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-blue transition-all duration-300">Commits</button>
-                    <button x-on:click="openTab = 2" :class="{ 'bg-blue-600 text-white': openTab === 2 }" class="flex-1 py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-blue transition-all duration-300">Merges</button>                
+                <div class="col-span-2 bg-white rounded-lg shadow-md p-4">
+                    <div class="flex items-center space-x-2">
+                        <button 
+                            x-on:click="openTab = 1" 
+                            :class="{ 'bg-blue-600 text-white': openTab === 1 }" 
+                            class="flex-1 py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-blue transition-all duration-300"
+                        >
+                            Commits
+                        </button>
+                        <button 
+                            x-on:click="openTab = 2" 
+                            :class="{ 'bg-blue-600 text-white': openTab === 2 }" 
+                            class="flex-1 py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-blue transition-all duration-300"
+                        >
+                            Merges
+                        </button>
+                        <form class="ml-auto">
+                            <button
+                                class="select-none rounded-lg border border-red-700 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-red-700 transition-all hover:opacity-75 focus:ring hover:bg-red-700 hover:text-white focus:ring-gray-300 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                                type="button"
+                            >
+                                @Html.ActionLink("Excluir Repositorio", "Delete", "GitHub", new { owner = Model.Repository.FullName.Split("/")[0], repo = Model.Repository.FullName.Split("/")[1] })
+                            </button>
+                        </form>
+                    </div>
                 </div>
-
                 <div x-show="openTab === 1" class="transition-all duration-300 bg-white p-4 rounded-lg shadow-md border-l-4 border-blue-600">
                     <div class="col-span-2">
                         <div class="flex flex-col">
