@@ -1,0 +1,25 @@
+message: Please cite this software using these metadata.
+title: RepoInsight
+authors:
+  - family-names:  Passos Bonfim
+    given-names: Andryel
+  - family-names: Vinícius Barkoski
+    given-names: Fábio
+  - family-names: Marques Pereira
+    given-names: Gustavo
+  - family-names: Pedro Campos Carvalho dos Santos
+    given-names: Joao
+  - family-names: Antonio Riboli
+    given-names: Lucas
+  - family-names: Ornelas da Silva
+    given-names: Victor
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Luiz Clemente
+    given-names: Thiago
+keywords:
+  - Gestão
+  - Versionamento
+repository-code: https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2024-1-e2-proj-int-t6-repoinsight
+version: 1.0.0
+date-released: 2024-06-20
