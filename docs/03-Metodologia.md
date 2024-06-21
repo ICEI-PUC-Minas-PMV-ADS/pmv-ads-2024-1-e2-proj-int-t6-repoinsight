@@ -128,8 +128,28 @@ A etapa 3 foi realizada de 15/04/24 a 12/05/24, e teve os seguintes entregáveis
 
 Durante esta etapa de desenvolvimento, usamos .NET e Vue.js para construir uma aplicação web. Começamos configurando o ambiente e desenvolvendo os principais endpoints da API, incluindo autenticação e gestão de repositórios. Paralelamente, realizamos sessões de explicação sobre conceitos de API e aplicativos web. Isso nos deu uma base sólida para criar uma aplicação integrando eficientemente o frontend e o backend.
 
-Vale ressaltar que tivemos alguns problemas no decorrer do desenvolvimento por conta da forte enchente que atingiu o Rio Grande do Sul, tendo 2 integrantes do grupo atingidos indiretamente com o desastre, ficamos alguns periodos sem internet e/ou luz, além de estarmos prestando ajuda também ao estado que está em estado de calamidade. 
+Vale ressaltar que tivemos alguns problemas no decorrer do desenvolvimento por conta da forte enchente que atingiu o Rio Grande do Sul, tendo 2 integrantes do grupo atingidos indiretamente com o desastre, ficamos alguns períodos sem internet e/ou luz, além de estarmos prestando ajuda também ao estado que está em estado de calamidade. 
 
+### Etapa 4
+
+A etapa 4 foi realizada de 13/05/24 a 09/06/24, e teve os seguintes entregáveis:
+- Template padrão da aplicação interativa
+- Programação de Funcionalidades
+- Realização e registro dos testes de software
+- Realização e registro dos testes de usabilidade
+
+Durante esta etapa de desenvolvimento, foram criadas as telas de cadastro, principal e de login. Além disso, registramos os testes de software e de usabilidade. Contudo, houve problemas com as entregas, o que nos levou a mudar o escopo do projeto e reduzir as funcionalidades previstas.
+
+### Etapa 5 
+
+A etapa 5 foi realizada de 10/06/24 a 23/06/24, e teve os seguintes entregáveis:
+- Relatório do teste de software
+- Relatório do teste de usabilidade
+- Apresentação da solução
+- Projeto do Github com Backlog e Plano de Sprints
+- Vídeo de até 3 minutos
+
+Durante esta etapa do desenvolvimento, entregamos o Relatório do Teste de Software, o Relatório do Teste de Usabilidade, e a Apresentação da Solução. Além disso, organizamos o projeto no Github com backlog e plano de sprints, e produzimos um vídeo de até 3 minutos, além disso revisamos todos os documentos do projeto. Essas entregas garantiram a documentação completa e a qualidade do projeto.
 
 ### Ferramentas
 
@@ -145,3 +165,4 @@ As ferramentas empregadas no projeto são:
 - Vue Js
 
 O editor de código foi escolhido porque ele possui uma integração com o sistema de versão, além de possuir extensão .NET que é essencial para o desenvolvimento da aplicação C#. As ferramentas de comunicação utilizadas possuem integração semelhante e são recomendada pela universidade, por isso foram selecionadas. Por fim, para criar diagramas utilizamos as ferramentas que melhor captaram as necessidades da nossa solução. Para criação do wireframe a ferramenta foi escolhida por permitir a edição colaborativa.
+
